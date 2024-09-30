@@ -1,0 +1,76 @@
+/* button */
+/* Разница отображения для неактивной кнопки */
+/* .button {
+  border: 4px solid violet;
+}
+
+.button[disabled] {
+  border: 4px solid black;
+} */
+
+/* .main-section {
+  color: blue;
+}
+
+.main-section>h1 {
+  color: aqua;
+}
+
+.main-section>p {
+  color: green;
+} */
+
+/* Псевдоклассы состояния */
+.button {
+    padding: 16px 32px;
+    color: var(--color-primary-light);
+    font-weight: 600;
+    background-color: var(--color-brand-normal);
+    border: 2px solid var(--color-brand-normal);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* специфичность */
+/* <button class="button" type="button">Замовити дзвінок</button> */
+/* этот приоритетнее, специфичнее */
+/* .button.button[type='button'] {
+  color: red;
+} */
+
+/* .button.button[type='button'] { */
+/* nav .button { */
+
+/* header .button {
+  color: blueviolet;
+} */
+
+.button:hover {
+    color: color-brand-dark;
+    background-color: transparent;
+}
+
+/* визуально отразить , если элемент кнопка disabled (программно отключен в html) */
+/* .button:disabled {} или через псевдокласс - так рекомендованнее */
+/* mod15 */
+/* .button[disabled] {
+  color: gray;
+  background-color: lightgray;
+  border-color: currentColor;
+  cursor: not-allowed;
+} */
+
+/* .button:focus {
+  color: palevioletred;
+}
+
+.button:active {
+  color: yellowgreen;
+} */
+
+/* каскадность */
+/* .button {
+  color: brown;
+
+
+} */

@@ -1,0 +1,44 @@
+/* Base */
+*,
+*::before,
+*::after {
+    /* размеры блока padding  border  отсчитывать внутрь блока */
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--color-primary-dark);
+    background-color: var(--color-primary-light);
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 0;
+}
+
+a {
+    /* всем ссылкам, чтобы сделать ссылку блоковой. Т.е. в нем буду работать размеры,
+    но оно останется строчный(рядковым) . т.е. не будет растягиваться на всю ширину родительского элемента. */
+    display: inline-block;
+}
+
+address {
+    font-style: normal;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    /* убрать значки кружков перед элементами списка ВСЕХ на странице. селектор тэга ul, без классов*/
+    list-style-type: none;
+}
