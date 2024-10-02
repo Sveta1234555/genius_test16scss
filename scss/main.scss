@@ -613,6 +613,13 @@ color там указан как основной для всей страниц
 }
 
 .format-card {
+    // для спозиционирвать на карточке фон-изображение. вместе с .format-image      position: absolute;
+    position: relative;
+    // для расположить текст на карточке к нижнему краю, был к верхнему
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
     height: 444px;
     padding: 24px;
     background-image: linear-gradient(180deg,
@@ -621,7 +628,7 @@ color там указан как основной для всей страниц
             var(--color-primary-dark) 100%);
     /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
     /*remove*/
-    border: 1px solid lightgray;
+    // border: 1px solid lightgray;
     border-radius: 16px;
     /* тень */
     /* box-shadow: 2px 2px 4px 4px violet;
@@ -636,6 +643,17 @@ color там указан как основной для всей страниц
 .format-card:hover {
     /* при наведении увеличить */
     transform: scale(1.05);
+}
+
+.format-image {
+    position: absolute;
+    // для растянуть картинку по всей ширине карточки format-card
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // положить jpg ниже текста карточки, иначе текст не виден, накрывается картинкой
+    z-index: -1;
 }
 
 .formats-container {
@@ -663,11 +681,13 @@ color там указан как основной для всей страниц
 .format-title {
     font-size: 24px;
     font-weight: 600;
+    color: var(--color-primary-light);
 }
 
 .format-text {
     font-size: 14px;
     font-weight: 300;
+    color: var(--color-primary-light);
 }
 
 /* Carousel */
