@@ -92,6 +92,23 @@
     padding: 0 24px;
 }
 
+// для _mixins пример
+// .circle {
+//     @include circle(100px, 100px, white);
+//     // width: 100px;
+//     // height: 100px;
+//     // background-color: #fff;
+// }
+
+
+// .circle-big {
+//     @include circle(200px, 200px, green);
+//     // width: 200px;
+//     // height: 200px;
+//     // background-color: green;
+// }
+// для _mixins пример-End ошибку выдает при компиляции
+
 // /* button */
 // /* Разница отображения для неактивной кнопки */
 // /* .button {
@@ -193,113 +210,124 @@
 // links перенести в /components/_links.scss 
 @import 'components/links';
 
-/* Header */
-.header {
-    /* фон был нужен до позиционирвоания Header над hero-section слоем position */
-    /* background-color: lightgrey; */
-    /* распоагаем над hero-section слоем */
-    position: absolute;
-    /* к левому верхнему углу body.
-   Для absolute
-  Відлік значень top,  left, bottom і right 
-  ведеться щодо найближчого предка з позиціонуванням,
-    відмінного від static. Якщо такого предка не буде,
-    то відлік від меж body*/
-    top: 0;
-    left: 0;
-    /* Растянуть header по ширине на 100%  */
-    width: 100%;
-    padding-top: 32px;
+// /* Header */
+// .header {
+//     /* фон был нужен до позиционирвоания Header над hero-section слоем position */
+//     /* background-color: lightgrey; */
+//     /* распоагаем над hero-section слоем */
+//     position: absolute;
+//     /* к левому верхнему углу body.
+//    Для absolute
+//   Відлік значень top,  left, bottom і right 
+//   ведеться щодо найближчого предка з позиціонуванням,
+//     відмінного від static. Якщо такого предка не буде,
+//     то відлік від меж body*/
+//     top: 0;
+//     left: 0;
+//     /* Растянуть header по ширине на 100%  */
+//     width: 100%;
+//     padding-top: 32px;
+// }
 
-    .header-container {
-            /* 2 блока (логотип+ меню   и   кнопка) стали горизонтально рядом
-      но align-items=stretch по-умолч - поэтому растянута кнопка по вертикали на всю высоту строки - родительского элемента (заданную наверное составом меню) */
-            display: flex;
-            /* сделать кнопку не растянутой stretch (по-умолч), а центрированной по вертикали */
-            align-items: center;
-            /* для разделить nav и кнопку при уменьшении размера экрана */
-            gap: 40px;
-        }
-}
+// .header-container {
+//     /* 2 блока (логотип+ меню   и   кнопка) стали горизонтально рядом
+//     но align-items=stretch по-умолч - поэтому растянута кнопка по вертикали на всю высоту строки - родительского элемента (заданную наверное составом меню) */
+//     display: flex;
+//     /* сделать кнопку не растянутой stretch (по-умолч), а центрированной по вертикали */
+//     align-items: center;
+//     /* для разделить nav и кнопку при уменьшении размера экрана */
+//     gap: 40px;
+// }
 
 
 
-.header-nav {
-    /* для расположить горизонтально рядом лого и меню в nav навигации */
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    /* для разделить в nav лого и меню ы при уменьшении размера экрана */
-    gap: 40px;
-}
+// .header-nav {
+//     /* для расположить горизонтально рядом лого и меню в nav навигации */
+//     display: flex;
+//     align-items: center;
+//     flex-grow: 1;
+//     /* для разделить в nav лого и меню ы при уменьшении размера экрана */
+//     gap: 40px;
+// }
 
-.header-menu {
-    /* это класс <ul> */
-    /* для меню расположить горизонтально */
-    display: flex;
-    /* для задать расстояние между элементами меню */
-    gap: 64px;
-    /* align-items: center; */
-    /* Чтобы занял все свободно место в родительском элементе nav (класс  .header-nav) :
-  часть займет лого, а все оставшееся - меню ul */
-    flex-grow: 1;
-    /* выравнять по гоавной горизонтальной оси */
-    justify-content: center;
-}
+// .header-menu {
+//     /* это класс <ul> */
+//     /* для меню расположить горизонтально */
+//     display: flex;
+//     /* для задать расстояние между элементами меню */
+//     gap: 64px;
+//     /* align-items: center; */
+//     /* Чтобы занял все свободно место в родительском элементе nav (класс  .header-nav) :
+//   часть займет лого, а все оставшееся - меню ul */
+//     flex-grow: 1;
+//     /* выравнять по гоавной горизонтальной оси */
+//     justify-content: center;
+// }
 
-/* hero-section */
-.hero-section {
-    padding: 272px 0;
-    /* background-color: burlywood; */
-    /* background-image: url('../images/couple-in-bakery.jpg'); */
-    /* background-repeat: no-repeat; */
-    /* background-position: 20px 40px; */
-    /* background-position: right bottom; */
-    /* background-position: right; */
-    /* top по Y - чтобы оставались лица при вписывании картинки по background-size: cover */
-    /* background-position: center top; */
-    /* Не сохраняет пропорции */
-    /* background-size: 1000px 400px; */
-    /* background-size: cover; */
-    /* fixed При прокрутке - не двигается: */
-    /* background-attachment: fixed; */
+// header перенести в /components/_header.scss 
+@import 'components/header';
 
-    background-image: linear-gradient(102.76deg,
-            rgba(18, 18, 17, 0.78) 2.03%,
-            rgba(18, 18, 17, 0.6) 58.46%,
-            rgba(18, 18, 17, 0) 90.36%),
-        url("../images/hero-section-background.jpg");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
 
-    /* вместо 4х правил - все в одно: но так - лучше не делать*/
-    /* background: url('../images/couple-in-bakery.jpg') no-repeat center/top cover; */
-}
+// /* hero-section */
+// .hero-section {
+//     padding: 272px 0;
+//     /* background-color: burlywood; */
+//     /* background-image: url('../images/couple-in-bakery.jpg'); */
+//     /* background-repeat: no-repeat; */
+//     /* background-position: 20px 40px; */
+//     /* background-position: right bottom; */
+//     /* background-position: right; */
+//     /* top по Y - чтобы оставались лица при вписывании картинки по background-size: cover */
+//     /* background-position: center top; */
+//     /* Не сохраняет пропорции */
+//     /* background-size: 1000px 400px; */
+//     /* background-size: cover; */
+//     /* fixed При прокрутке - не двигается: */
+//     /* background-attachment: fixed; */
 
-/* h1 сучасна пекарня */
-.hero-title {
-    margin-bottom: 0;
-    color: var(--color-primary-light);
-    text-align: center;
-    font-size: 128px;
-    font-weight: 900;
-    /* font-style: italic; */
-    /* text-transform: capitalize; */
-    /* text-shadow: 2px 2px 4px violet;
-  letter-spacing: 4px;
-  word-spacing: 4px;
-  white-space: nowrap; */
-}
+//     background-image: linear-gradient(102.76deg,
+//             rgba(18, 18, 17, 0.78) 2.03%,
+//             rgba(18, 18, 17, 0.6) 58.46%,
+//             rgba(18, 18, 17, 0) 90.36%),
+//         url("../images/hero-section-background.jpg");
+//     background-repeat: no-repeat;
+//     background-position: center top;
+//     background-size: cover;
 
-/* .hero-title span {
-  color: var(--color-brand-normal);
-} */
+//     /* вместо 4х правил - все в одно: но так - лучше не делать*/
+//     /* background: url('../images/couple-in-bakery.jpg') no-repeat center/top cover; */
+// }
 
-.hero-title .accent {
-    /* background: rgba(18, 18, 17, 0.6);  4й параметр - прозрачность. 1 полностью прозрачный. 0 -непрозр. */
-    color: var(--color-brand-normal);
-}
+// /* h1 сучасна пекарня */
+// .hero-title {
+//     margin-bottom: 0;
+//     color: var(--color-primary-light);
+//     text-align: center;
+//     font-size: 128px;
+//     font-weight: 900;
+//     /* font-style: italic; */
+//     /* text-transform: capitalize; */
+//     /* text-shadow: 2px 2px 4px violet;
+//   letter-spacing: 4px;
+//   word-spacing: 4px;
+//   white-space: nowrap; */
+// }
+
+// /* .hero-title span {
+//   color: var(--color-brand-normal);
+// } */
+
+// .hero-title .accent {
+//     /* background: rgba(18, 18, 17, 0.6);  4й параметр - прозрачность. 1 полностью прозрачный. 0 -непрозр. */
+//     color: var(--color-brand-normal);
+// }
+
+// hero-section перенести в /components/_hero-section.scss 
+@import 'components/hero-section';
+
+
+@import './utils/mixins';
+
 
 /* advantages section */
 
