@@ -1,0 +1,1204 @@
+@charset "UTF-8";
+/* poppins-300 - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Poppins";
+  /* font-style: normal; */
+  font-weight: 300;
+  src: url("../fonts/poppins-v21-latin-300.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* poppins-regular - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Poppins";
+  /* font-style: normal; */
+  font-weight: 400;
+  src: url("../fonts/poppins-v21-latin-regular.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* poppins-600 - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Poppins";
+  /* font-style: normal; */
+  font-weight: 600;
+  src: url("../fonts/poppins-v21-latin-600.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* poppins-900 - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Poppins";
+  /* font-style: normal; */
+  font-weight: 900;
+  src: url("../fonts/poppins-v21-latin-900.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+:root {
+  --color-primary-dark: #31261a;
+  --color-primary-light: #faf4ea;
+  --color-secondary-dark: #a28268;
+  --color-brand-dark: #465929;
+  --color-brand-normal: #819b57;
+  --color-brand-light: #cfcfbc;
+  --color-background: #faf4ea;
+  /* #A28268; */
+  --color-secondary-normal: #a18268;
+}
+
+/* Base */
+/* Base */
+*,
+*::before,
+*::after {
+  /* размеры блока padding  border  отсчитывать внутрь блока */
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+a {
+  /* всем ссылкам, чтобы сделать ссылку блоковой. Т.е. в нем буду работать размеры,
+  но оно останется строчный(рядковым) . т.е. не будет растягиваться на всю ширину родительского элемента. */
+  display: inline-block;
+}
+
+address {
+  font-style: normal;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  /* убрать значки кружков перед элементами списка ВСЕХ на странице. селектор тэга ul, без классов*/
+  list-style-type: none;
+}
+
+/* Для скрыть визуально h2 в section. Но для браузера останется. так надо */
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.section {
+  padding: 48px 0;
+}
+
+.container {
+  /* width: 1240px; */
+  /* надо чтобы сайт не менял размеры при изменении адаптив размеров,  типа экрана  */
+  width: 100%;
+  /* max-width: 1240px; */
+  /* 1288=1240+24*2   т.к. padiing из-за установленного box-sizing не учитываются, их надо добавить */
+  max-width: 1288px;
+  /* центрировать контейнер div class=container относително макс размераы горизонатльно */
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* button */
+/* Разница отображения для неактивной кнопки */
+/* .button {
+  border: 4px solid violet;
+}
+
+.button[disabled] {
+  border: 4px solid black;
+} */
+/* .main-section {
+  color: blue;
+}
+
+.main-section>h1 {
+  color: aqua;
+}
+
+.main-section>p {
+  color: green;
+} */
+/* Псевдоклассы состояния */
+.button {
+  padding: 16px 32px;
+  color: var(--color-primary-light);
+  font-weight: 600;
+  background-color: var(--color-brand-normal);
+  border: 2px solid var(--color-brand-normal);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* специфичность */
+/* <button class="button" type="button">Замовити дзвінок</button> */
+/* этот приоритетнее, специфичнее */
+/* .button.button[type='button'] {
+  color: red;
+} */
+/* .button.button[type='button'] { */
+/* nav .button { */
+/* header .button {
+  color: blueviolet;
+} */
+.button:hover {
+  color: color-brand-dark;
+  background-color: transparent;
+}
+
+/* визуально отразить , если элемент кнопка disabled (программно отключен в html) */
+/* .button:disabled {} или через псевдокласс - так рекомендованнее */
+/* mod15 */
+/* .button[disabled] {
+  color: gray;
+  background-color: lightgray;
+  border-color: currentColor;
+  cursor: not-allowed;
+} */
+/* .button:focus {
+  color: palevioletred;
+}
+
+.button:active {
+  color: yellowgreen;
+} */
+/* каскадность */
+/* .button {
+  color: brown;
+
+
+} */
+/* link */
+/* меню списком header и footer */
+.link {
+  color: var(--color-primary-light);
+  /* убрать значки кружков перед элементами списка */
+  text-decoration: none;
+  /* анимация переход цвета ссылки при hover */
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: var(--color-brand-normal);
+  /*нехорошо,  что при наведении на меню - двигаются-прыгают все элементы меню.
+  Из-за увеличенного размера шрифта hover Обсуждать с разработчиком макета. 
+  Лучше - убрать увеличение шрифта hover. Выделения цветом достаточно */
+  /* font-weight: 600; */
+}
+
+/* Header */
+.header {
+  /* фон был нужен до позиционирвоания Header над hero-section слоем position */
+  /* background-color: lightgrey; */
+  /* распоагаем над hero-section слоем */
+  position: absolute;
+  /* к левому верхнему углу body.
+   Для absolute
+  Відлік значень top,  left, bottom і right 
+  ведеться щодо найближчого предка з позиціонуванням,
+    відмінного від static. Якщо такого предка не буде,
+    то відлік від меж body*/
+  top: 0;
+  left: 0;
+  /* Растянуть header по ширине на 100%  */
+  width: 100%;
+  padding-top: 32px;
+}
+
+.header-container {
+  /* 2 блока (логотип+ меню   и   кнопка) стали горизонтально рядом
+  но align-items=stretch по-умолч - поэтому растянута кнопка по вертикали на всю высоту строки - родительского элемента (заданную наверное составом меню) */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* сделать кнопку не растянутой stretch (по-умолч), а центрированной по вертикали */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* для разделить nav и кнопку при уменьшении размера экрана */
+  gap: 40px;
+}
+
+.header-nav {
+  /* для расположить горизонтально рядом лого и меню в nav навигации */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  /* для разделить в nav лого и меню ы при уменьшении размера экрана */
+  gap: 40px;
+}
+
+.header-menu {
+  /* это класс <ul> */
+  /* для меню расположить горизонтально */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* для задать расстояние между элементами меню */
+  gap: 64px;
+  /* align-items: center; */
+  /* Чтобы занял все свободно место в родительском элементе nav (класс  .header-nav) :
+  часть займет лого, а все оставшееся - меню ul */
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  /* выравнять по гоавной горизонтальной оси */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/* hero-section */
+.hero-section {
+  padding: 272px 0;
+  /* background-color: burlywood; */
+  /* background-image: url('../images/couple-in-bakery.jpg'); */
+  /* background-repeat: no-repeat; */
+  /* background-position: 20px 40px; */
+  /* background-position: right bottom; */
+  /* background-position: right; */
+  /* top по Y - чтобы оставались лица при вписывании картинки по background-size: cover */
+  /* background-position: center top; */
+  /* Не сохраняет пропорции */
+  /* background-size: 1000px 400px; */
+  /* background-size: cover; */
+  /* fixed При прокрутке - не двигается: */
+  /* background-attachment: fixed; */
+  background-image: linear-gradient(102.76deg, rgba(18, 18, 17, 0.78) 2.03%, rgba(18, 18, 17, 0.6) 58.46%, rgba(18, 18, 17, 0) 90.36%), url("../images/hero-section-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  /* вместо 4х правил - все в одно: но так - лучше не делать*/
+  /* background: url('../images/couple-in-bakery.jpg') no-repeat center/top cover; */
+}
+
+/* h1 сучасна пекарня */
+.hero-title {
+  margin-bottom: 0;
+  color: var(--color-primary-light);
+  text-align: center;
+  font-size: 128px;
+  font-weight: 900;
+  /* font-style: italic; */
+  /* text-transform: capitalize; */
+  /* text-shadow: 2px 2px 4px violet;
+  letter-spacing: 4px;
+  word-spacing: 4px;
+  white-space: nowrap; */
+}
+
+/* .hero-title span {
+  color: var(--color-brand-normal);
+} */
+.hero-title .accent {
+  /* background: rgba(18, 18, 17, 0.6);  4й параметр - прозрачность. 1 полностью прозрачный. 0 -непрозр. */
+  color: var(--color-brand-normal);
+}
+
+/* advantages section */
+.advantages-section {
+  /* перенсен сюда bcgr из .advantages-list. чтобы фон растягивался с section до границ. слева справа */
+  background: var(--color-brand-normal);
+  /* отступы сверху-снизу от меню padding 16 top bottom. padding дочернего элемента div внутри родительского section advantages-section */
+  padding: 16px 0;
+}
+
+.advantages-list {
+  /* ul */
+  /* для разместить элементыменю горизонтально */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* для сделать одинак расстояния между элементами меню. растягивает элементы по сторонам */
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  /* чтобы не сЪезжались при уменеьшении горизонтальном экрана элементы меню : */
+  gap: 40px;
+  /* color: var(--color-primary-light); перенесен в .advantages-item*/
+  /* background: var(--color-brand-normal); перенсен в .advantages-section*/
+}
+
+.advantages-item {
+  /* li */
+  /* цвет перенесен из .advantages-list сюда */
+  color: var(--color-primary-light);
+  font-size: 20px;
+  font-weight: 300;
+}
+
+/* класс стал ненужен, т.к. color наследуется от указанного в селекторе body
+color там указан как основной для всей страницы.
+Но оставим. надо будет выделять часть текста особым форматом с пом. span  */
+/* .section-title {
+  color: var(--color-primary-dark);
+} */
+.section-title {
+  font-size: 64px;
+  font-weight: 900;
+  /* 1.3 = 84px (line-height) / 64px (font-size) */
+  line-height: 1.3;
+}
+
+/* если  рядом с заголовком h2 (его класс section-title) есть класс centered - центрировать его */
+.section-title.centered {
+  text-align: center;
+}
+
+/* если внутри класса section-title (это общий класс заголовков h2) есть класс accent, то цвет задать всем*/
+.section-title .accent {
+  /* для span class="accent">шеф-кухарі расположить вертикально
+  под первой частью текста h2, как блоковый элемент */
+  display: block;
+  color: var(--color-brand-dark);
+}
+
+/* Traditions section */
+/* чтобы между1 и 2й секциями сделать 96,а пока есть 48.
+Внимание! ДОбалвлен класс секции 2й через пробел.
+в html :     <section class="traditions-section section" id="traditions-section"> 
+Это в css обращение к class, а не к id. 
+К Id из css НЕ ОБРАЩАТЬСЯ!!!*/
+.traditions-section {
+  padding-top: 96px;
+}
+
+/* div включает все содржимое секции Традиции (H2, p,p, img)*/
+.traditions-container {
+  /* контент (H2, p,p) и img располагает горизонтально. т.к. По-умолч flex-direction: row */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* между текстовым контентом (H2, p,p) и  img (именно самой картинкой, а не блоком шире, в которую она помещена в макете Figma)
+  расстояние 104px. Раздвигаем эти 2 div с пом. gap */
+  /* gap: 100px; делаем иначе размещение (H2, p,p) и img  2.1 +2.2+2.3.  и в div .traditions-content . 
+  2.1. gap меньше (при уменьшении будет не статично 100, а меньше)  
+  2.2 .traditions-content     max-width: 710px; 
+  2.3.   раздвинуть по сторонам элементы , к краям
+   */
+  /* 2.1 +2.2+2.3  */
+  /* 2.2. ограничить div content с текстом размером 710 по ширине В div .traditions-content*/
+  /* max-width: 710px; */
+  /*2.3. раздвинуть по сторонам элементы , к краям*/
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  /* 2.1.чтобы не сталикивались элементы ри уменьшении ширины экрана */
+  gap: 40px;
+}
+
+.traditions-content {
+  /* 2.2. ограничить div content с текстом размером 710 по ширине */
+  max-width: 710px;
+}
+
+/* отступ от h2 до p в секции 2 traditions (теперь3)  */
+.traditions-title {
+  margin-bottom: 42px;
+}
+
+/* .traditions-text span { */
+.traditions-text .brand {
+  color: var(--color-brand-normal);
+  font-weight: 600;
+}
+
+/* через пробел - это вложенный класс любого уровня (через ">" вложенный только первого уровня)
+<p class="traditions-text">
+      <span class="brand uppercase">shop bakery</span>
+*/
+.traditions-text .uppercase {
+  text-transform: uppercase;
+}
+
+/* Ограничить ширину текста половной всего блока . произвольно сами решили . вместо br */
+/* ограничить ширину только2-го параграфа <p>   2 способа. ПОдробнее пробы nth-child() см. inf8_2.txt*/
+/* .traditions-text:nth-child(3) {
+  max-width: 360px;
+} */
+/* .traditions-text:last-child {
+  max-width: 340px;
+} */
+/* Без пробела - это этого же уровня этот же сам тэг, но с 2м классом
+<p class="traditions-text limited"> 
+У .traditions-text есть еще и класс limited  .          */
+.traditions-text.limited {
+  max-width: 330px;
+}
+
+/* Так работает тоже: */
+/* .traditions-content .limited {
+  background-color: red;
+} */
+/* .traditions-container .limited {
+  background-color: aqua;
+} */
+/* Chefs section */
+.chefs-title {
+  /* для расположить линии before after по сторонам этого заголовка hw*/
+  position: relative;
+  /* чтобы в 2 строки h2 стал, как на макете Фигма */
+  /* max-width: 520px;  так в 3 строки, а не 2 */
+  /* убрали т.к. сделали br */
+  /* max-width: 532px; */
+  /* от заголовка h2 до списка настя-влад в секц. 3 (теперь 4) Шефы */
+  /* margin-bottom: 80px; */
+  /* 0 auto добавлено для центрирования h2 относительно своей секции. Класс centered - здесь недостасточно */
+  margin: 0 auto 80px;
+}
+
+/* Псевдоэлемент (after before):   для h2*/
+.chefs-title::before,
+.chefs-title::after {
+  position: absolute;
+  bottom: 24px;
+  /* чтобы задавать высоту и ширину сдеелать block. по-умолч псевдо-элементы after before -  Inline и не учитывают w h */
+  /* Назначили after before «position: absolute» 
+  элементы автоматически становятся блоковыми.
+  Теперь display block Ненуен, они уже стали такими 
+  из-за position=absolute */
+  /* display: block; */
+  width: 352px;
+  /* height: 2px;  вариант2 реализации
+  background-color: #CFCFBC; */
+  border: 2px solid var(--color-brand-light);
+  content: "";
+  /* мод10 Для добавить svg Через псевдоэлемент - не получилось */
+  /* height: 50px;
+  background-image: url("../images/logo.svg");
+  position: absolute;
+  background-repeat: no-repeat; */
+  /* background-size: cover; */
+}
+
+.chefs-title::before {
+  /* для подвинуть линию before влево на ее ширину 352px */
+  /* относительно его элемента h2, к которому он присоединен */
+  /* перенесли вверх, одинак для after before */
+  /* position: absolute; */
+  /* top: 0; он и так изначально тут */
+  /* left: -352px; */
+  /* + 8px - зазор между границей H2 слева и линией before
+  352+8=360 */
+  /* left: -360px; */
+  /* убрали ограничение max-width=352 у chefs-title  (h2),
+   h2 стал шириной на всЮ страницу.
+   отсчет от границ H2 для after before */
+  left: 0;
+  /* к нижней границе по вертикали , на расстояние по макету снизу 24 Px*/
+  /* перенесли вверх, одинак правило для after before */
+  /* bottom: 24px; */
+}
+
+.chefs-title::after {
+  /* для подвинуть линию after вправо на ее ширину 352px */
+  /* относительно его элемента h2, к которому он присоединен */
+  /* перенесли вверх, одинак для after before */
+  /* position: absolute; */
+  /* top: 0; он и так изначально тут */
+  /* right: -352px; */
+  /* + 8px - зазор между границей H2  и линией after: 
+  352+8=360 */
+  /* right: -360px; */
+  /* убрали ограничение max-width=352 у chefs-title  (h2),
+  h2 стал шириной на всЮ страницу.
+  отсчет от границ H2 для after before */
+  right: 0;
+  /* к нижней границе по вертикали , на расстояние по макету снизу 24 Px*/
+  /* перенесли вверх, одинак правило для after before */
+  /* bottom: 24px; */
+}
+
+.chefs-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* чтобы gap стал между элементами flex */
+  gap: 30px;
+  /* На развитие - при добавлении карточек - чтобы переносились на след строку */
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /* На развитие - увеличить row-gap отступ между строчками карточек. после проверки f12 с болшим количеством карточек */
+  gap: 40px 30px;
+}
+
+.chefs-item {
+  -ms-flex-preferred-size: calc((100% - 30px) / 2);
+      flex-basis: calc((100% - 30px) / 2);
+}
+
+.chef-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+}
+
+.chef-photo {
+  /* Обрезать фотки шефов Настя ВЛад слева снизу */
+  border-radius: 4px 4px 4px 200px;
+  /* box-shadow: -16px 16px 0 0 white, -16px 16px 0 2px var(--color-secondary-dark); */
+  -webkit-box-shadow: -16px 16px 0 0 var(--color-primary-light), -16px 16px 0 2px var(--color-secondary-dark);
+          box-shadow: -16px 16px 0 0 var(--color-primary-light), -16px 16px 0 2px var(--color-secondary-dark);
+}
+
+.chef-title {
+  /* От Настя, Влад (h2) до параграфа одинаково по 16px: */
+  margin-bottom: 16px;
+  font-size: 40px;
+  font-weight: 600;
+  /* line-height: 1.5; не пишем. т.к. 60/40  =1.5  наследуются от body . НО - у меня эти 60px Figma не пишется!!! */
+}
+
+/* так недостаточно , остается последний параграф 18 по-умолч, а не 0 */
+/* .chef-text p:not(:last-child) {
+  отступы между параграфами - 24,кроме посднего
+  margin-bottom: 24px;
+} */
+.chef-text p {
+  /* отступы между параграфами - 24 */
+  margin-bottom: 24px;
+}
+
+.chef-text p:last-child {
+  /* отступ последнему параграфу - 0 */
+  margin-bottom: 0;
+}
+
+/* Formats section */
+.format-item {
+  /* 40 px это 2 gap по 20 px */
+  -ms-flex-preferred-size: calc((100% - 40px) / 3);
+      flex-basis: calc((100% - 40px) / 3);
+}
+
+.format-card {
+  height: 444px;
+  padding: 24px;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(55.21%, rgba(49, 38, 26, 0)), color-stop(72.92%, rgba(49, 38, 26, 0.71)), to(var(--color-primary-dark)));
+  background-image: linear-gradient(180deg, rgba(49, 38, 26, 0) 55.21%, rgba(49, 38, 26, 0.71) 72.92%, var(--color-primary-dark) 100%);
+  /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
+  /*remove*/
+  border: 1px solid lightgray;
+  border-radius: 16px;
+  /* тень */
+  /* box-shadow: 2px 2px 4px 4px violet;
+  box-shadow: 0px -10px 4px -5px violet; */
+  /* многослойная тень */
+  /* box-shadow: 2px 2px 4px 4px violet, 4px 4px 8px 8px gold; */
+  /* плавнее увеличение размера карточки при Hover */
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.format-card:hover {
+  /* при наведении увеличить */
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.formats-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* выставить кнопки по вспомог. оси вертикальной посредине */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* между кнопками и div из 3-х карточек с обеих сторон*/
+  gap: 32px;
+}
+
+.formats-list {
+  /* расположить карточки горизоантально */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /*переносить карточки из расч. 100% / 3*/
+  gap: 20px;
+  /*на макете так*/
+}
+
+.formats-title {
+  /* от h2 Walrus...  до p */
+  margin-bottom: 80px;
+}
+
+.format-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.format-text {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* Carousel */
+.carousel-button {
+  /* центрировать кнопку */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* по основной оси */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* по вспомогательной оси, вертикально : */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* чтобы круглые кнопки не сжимались до эллипса после display-flex новому div "formats-container" */
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  /* Кнопочка кругленька */
+  border-radius: 50%;
+  /* исправить по-умолч что добавил браузер кнопке */
+  background-color: transparent;
+  border: 1px solid var(--color-primary-dark);
+  padding: 0;
+  /* fill наследуется от кнопки - перенесено  в кнопку из иконки .carousel-arrow {}*/
+  fill: var(--color-primary-dark);
+  /* курсор ручкой над кнопкой */
+  cursor: pointer;
+}
+
+.carousel-button:hover {
+  /* наведение на кнопку круглую со стрелкой - фон темно-зел */
+  background-color: var(--color-primary-dark);
+  /* fill наследуется от кнопки - перенесено  в кнопку из иконки .carousel-button: hover .carousel-arrow{} */
+  fill: var(--color-primary-light);
+}
+
+.carousel-button.next {
+  /* повернуть круглую кнопку-стрелку справа НАПРАВО */
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+/* ушло из-за наслеlования fill */
+/* .carousel-button:hover .carousel-arrow { */
+/* наведение на кнопку круглую со стрелкой - сама стрелка иконка svg внутри кнопки становится светлой */
+/* fill здесь в иконке-стрелке наследуется от кнопки - переносим в кнопку-родителя.hover */
+/* fill: var(--color-primary-light); */
+/* } */
+/* ушло из-за наслеlования fill */
+/* .carousel-arrow { */
+/* fill здесь в иконке-стрелке наследуется от кнопки - переносим в кнопку-родителя */
+/* fill: var(--color-primary-dark); */
+/* } */
+/* Contacts section */
+.contact-section {
+  padding-bottom: 96px;
+}
+
+.contact-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 32px;
+}
+
+.contact-map {
+  /* чтобы карта не сжималась после flex родителю и gap */
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  /* убрать рамку вокруг map */
+  border: none;
+  border-radius: 16px;
+}
+
+.contact-title {
+  /* от h2 Приеднуйся...  до p Заповни форму */
+  margin-bottom: 16px;
+}
+
+/* Footer */
+.footer {
+  padding: 32px 0;
+  /* без этого не виден декор  before хлебец после bottom 0 у before */
+  /* это надо т.к. именно относительно footer позицонируем это изображение декор before */
+  position: relative;
+  /* background-image: url('../images/footer-background.jpg'); */
+  /* png - Прозрачный, чтобы достичь темного цвета фона, как в макете */
+  background-image: url("../images/footer-background.png");
+  background-color: var(--color-primary-dark);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.footer::before,
+.footer::after {
+  position: absolute;
+  bottom: 0;
+  background-repeat: no-repeat;
+  content: "";
+}
+
+.footer::before {
+  /* стал блоковым, вертикално располаг */
+  /* position: absolute;  одинаковые - вверх */
+  width: 180px;
+  height: 120px;
+  /* поместить в нижний левый угол хлебец-декор before */
+  /* bottom: 0; одинаковые - вверх */
+  left: 0;
+  /* размеры задали явно, поэтому меняем на 100% */
+  /* background-size: 180px 120px; */
+  /* убрали 100% т.к. доавили no-repeat */
+  /* background-size: 100%; */
+  /* background-repeat: no-repeat; одинаковые - вверх */
+  background-image: url("../images/decor-bread-small.png");
+  /* content: ""; одинаковые - вверх */
+}
+
+.footer::after {
+  /* стал блоковым, вертикално располаг */
+  /* position: absolute; одинаковые - вверх  */
+  width: 380px;
+  height: 190px;
+  /* поместить в нижний левый угол хлебец-декор before */
+  /* bottom: 0; одинаковые - вверх  */
+  /* поместить к правому краю */
+  right: 0;
+  /* background-repeat: no-repeat;  одинаковые - вверх  */
+  background-image: url("../images/decor-bread-large.png");
+  /* content: ""; одинаковые - вверх  */
+}
+
+.footer-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* между блоками крупными 2-мя - элементами flex (nav и address) родительского footer-container */
+  gap: 20px;
+}
+
+.footer-nav,
+.footer-address {
+  /* для логотип и список ul стали в один ряд */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  /* между блоками- элементами flex каждого родительского. попарно */
+  gap: 20px;
+}
+
+/* .footer-address {
+  чтобы ul и addres-info (copyright и ...) стали в ряд
+  display: flex;
+  flex-basis: 50%;
+} */
+.footer-logo,
+.footer-menu {
+  /* для логотип и список ul заняли по 50% в своем flex*/
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+/* .footer-menu {
+  для логотип и список ul заняли по 50% в своем flex
+  flex-grow: 1;
+} */
+.address-list,
+.address-info {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.address-link {
+  color: var(--color-primary-light);
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.address-link:hover {
+  color: var(--color-brand-normal);
+}
+
+.address-icon {
+  fill: var(--color-primary-light);
+  /* обводка иконки  */
+  /* stroke: red; */
+}
+
+.address-icon:hover {
+  fill: var(--color-brand-normal);
+}
+
+.address-copyright {
+  font-size: 14px;
+  /* 400 inheryt от body} */
+  color: var(--color-secondary-normal);
+}
+
+/* .test-box {
+  width: 300px;
+  height: 400px;
+  border: 1px solid black;
+  margin: 20px auto;
+  background-image: linear-gradient(gold, blue);
+  background-image: linear-gradient(gold, green, blue);
+  background-image: linear-gradient(gold 50%, green 70%, blue 100%);
+  background-image: linear-gradient(to left, gold 50%, green 70%, blue 100%);
+  background-image: linear-gradient(to right, gold 50%, green 70%, blue 100%);
+  background-image: linear-gradient(to top, gold 50%, green 70%, blue 100%);
+  background-image: linear-gradient(to bottom, gold 50%, green 70%, blue 100%);
+  background-image: linear-gradient(45deg, gold 50%, green 50%, green 70%, blue 100%);
+  background-image: linear-gradient(45deg, gold 50%, green 50%, green 70%, blue 70%, blue 100%);
+  background-image: radial-gradient(gold 50%, green 50%, green 70%, blue 70%, blue 100%);
+  background-image: radial-gradient(gold 50%,  green 70%, blue 100%);
+} */
+/* Мodal */
+.backdrop {
+  /* затемененный фон под активным модальным окном-  фиксированный элемент */
+  position: fixed;
+  /* растягиваться на всю ширину экрана. */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* фон - полупрозрачный черный цвет */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* для расположить модальное окно по центру backdrop */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* модальное окно отодвинуть от границ  - относительно родительского Padding-Ом */
+  padding: 20px 0;
+  /* анимация ПЕРЕХОД- плавнее показывать модальное окно */
+  -webkit-transition: opacity 0.3s, visibility 0.3s;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* .modal.is-hidden { */
+.backdrop.is-hidden {
+  /* когда к backdrop добавляется класс 'is-hidden', надо его- окно прятать: */
+  /* display: none; */
+  /* в2 реализации  */
+  /* делает окно прозрачным , но еще можно нажать на любой контент внутри формы, поля ввода*/
+  opacity: 0;
+  /* чтобы нельзя нажать на элементы скрытой формы */
+  /* Не сделать окно прозрачным , а  спрятать его, нажать нельзя уже на элементы на окне. */
+  visibility: hidden;
+  /* чтобы вообще нельзя было нажать на окно */
+  pointer-events: none;
+}
+
+.modal {
+  /* модальное окно */
+  /* для расположить относительно него кнопку ккрестик close */
+  position: relative;
+  /* для больших экранов не больше 880px модальное окно */
+  /* если окно меньше 880 то модальное окно будет занимать 100% окна по ширине*/
+  /* width: 880px; */
+  width: 100%;
+  max-width: 880px;
+  /* height: 880px; */
+  height: 100%;
+  max-height: 880px;
+  /* на макете вокруг заголовка - формы такие с 3-х сторон отступы */
+  padding: 128px;
+  background-color: var(--color-primary-light);
+  border-radius: 32px;
+  /* чтобы скроллилось модальное окно когда не помещается содержимаое */
+  overflow-y: auto;
+}
+
+.modal-btn-close {
+  /* кнопка крестик close */
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+/* Form */
+.form-field {
+  /* Для альтернативной версии расположения label, и перемещения его над input при фокусе на input */
+  position: relative;
+  margin-bottom: 32px;
+}
+
+/* Когда внутри form  будет фокус в любом элемента, к ней добавляются стили ( рамка будет черной у всей формы) */
+/* .form:focus-within {
+  border: 1px solid black;
+} */
+/* Когда внутри form-field (div) будет фокус, к нему добавляются стили ( рамка будет черной) */
+/* .form-field:focus-within {
+  border: 1px solid black;
+} */
+.form-label {
+  /* Для альтернативной версии расположения label, и перемещения его над input при фокусе на input */
+  position: absolute;
+  /* display: block; убрали, т.к. position abslolute делает элмент блоком по-умолчанию*/
+  top: 16px;
+  /* на макете слева от label до div */
+  left: 42px;
+  /* для перемещения label над input */
+  /* transform: translate(-36px, -40px);  перемещен В .form-input:focus + .form-label */
+  /* transition: transform 0.3s;  для вар 2 , 3*/
+}
+
+/* для перемещения label над input */
+/* вар2 */
+/* Когда form-input в фокусе, то label, который лежит рядом, должен принимать такой стиль */
+/* .form-input:focus+.form-label { */
+/* для перемещения label над input */
+/* transform: translate(-36px, -40px);
+} */
+/* вар 3  */
+/* перемещения Label над input, Когда form-input в фокусе (нендао перемещать label d html под input), должен принимать такой стиль */
+/* псевдокласс focus-within */
+/* .form-field:focus-within .form-label { */
+/* для перемещения label над input */
+/* transform: translate(-36px, -40px);
+} */
+.form-input {
+  padding: 16px 42px;
+  /* растянуть input ппо всей ширине */
+  width: 100%;
+  /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+  font-size: 16px;
+  line-height: 1.17;
+  border: 1px solid var(--color-secondary-dark);
+  border-radius: 8px;
+  /* фон поля ввода input прозрачный */
+  background-color: transparent;
+}
+
+/* mod15 */
+.form-input:-moz-placeholder-shown {
+  background-color: blue;
+}
+.form-input:-ms-input-placeholder {
+  background-color: blue;
+}
+.form-input:placeholder-shown {
+  background-color: blue;
+}
+
+/* .form-input:not(:placeholder-shown) {
+  background-color: blue;
+} */
+.form-input:focus {
+  border-color: var(--color-brand-normal);
+  /* убрать обводку синюю по-умолч от браузера, иначен невидно зеленого border в фокусе поля ввода */
+  outline: none;
+}
+
+/* mod15 Псевдокласи стану */
+.form-input:required {
+  border-color: red;
+}
+
+/* визуализировать , что элемент деактивиорован на html  mod15 */
+/* mod15 */
+.form-input:disabled {
+  border-color: lightgray;
+}
+
+.form-input:disabled::-webkit-input-placeholder {
+  color: lightgray;
+}
+
+.form-input:disabled::-moz-placeholder {
+  color: lightgray;
+}
+
+.form-input:disabled:-ms-input-placeholder {
+  color: lightgray;
+}
+
+.form-input:disabled::-ms-input-placeholder {
+  color: lightgray;
+}
+
+.form-input:disabled::placeholder {
+  color: lightgray;
+}
+
+/* mod15 -end*/
+.form-input::-webkit-input-placeholder {
+  /* ПОдсказка вместо label внутри поля ввода input */
+  color: var(--color-secondary-dark);
+  /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+  font-size: 16px;
+  line-height: 1.17;
+}
+.form-input::-moz-placeholder {
+  /* ПОдсказка вместо label внутри поля ввода input */
+  color: var(--color-secondary-dark);
+  /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+  font-size: 16px;
+  line-height: 1.17;
+}
+.form-input:-ms-input-placeholder {
+  /* ПОдсказка вместо label внутри поля ввода input */
+  color: var(--color-secondary-dark);
+  /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+  font-size: 16px;
+  line-height: 1.17;
+}
+.form-input::-ms-input-placeholder {
+  /* ПОдсказка вместо label внутри поля ввода input */
+  color: var(--color-secondary-dark);
+  /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+  font-size: 16px;
+  line-height: 1.17;
+}
+.form-input::placeholder {
+  /* ПОдсказка вместо label внутри поля ввода input */
+  color: var(--color-secondary-dark);
+  /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+  font-size: 16px;
+  line-height: 1.17;
+}
+
+.form-input:focus::-webkit-input-placeholder {
+  /* цвет букв label менять при фокусе в input */
+  color: var(--color-primary-dark);
+}
+
+.form-input:focus::-moz-placeholder {
+  /* цвет букв label менять при фокусе в input */
+  color: var(--color-primary-dark);
+}
+
+.form-input:focus:-ms-input-placeholder {
+  /* цвет букв label менять при фокусе в input */
+  color: var(--color-primary-dark);
+}
+
+.form-input:focus::-ms-input-placeholder {
+  /* цвет букв label менять при фокусе в input */
+  color: var(--color-primary-dark);
+}
+
+.form-input:focus::placeholder {
+  /* цвет букв label менять при фокусе в input */
+  color: var(--color-primary-dark);
+}
+
+.form-button {
+  /* центрировать кнопку на форме */
+  /* кнопка по-умолч не является блоком. Она display-inlineblock (f12 видно) */
+  /* сделать кнопку на офрме block, чтобы центрировать ее с пом. margin 0 auto */
+  display: block;
+  margin: 0 auto;
+  /* доб24 px снизу отступ от кнопки */
+  margin: 0 auto 24px;
+}
+
+.form-terms {
+  /* текст под кнопкой на форме */
+  /* Для Центрирвоать текст под кнопкой – margin: 0 auto */
+  margin: 0 auto;
+  max-width: 220px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  /* color inherit от body */
+  text-align: center;
+}
+
+.form-terms-link {
+  /* по-умолч ссылка - синяя, поменять на цвет по дизайну */
+  color: var(--color-primary-dark);
+  /* отступ до линии подчеркивания ссылки по-умолч отстутствует, а надо 2px */
+  text-underline-offset: 2px;
+}
+
+/* mod15 - для замены стиля input  checkbox на свой
+при том, что его стиль по-умолч поменять нельзя */
+/* div checkbox - чтобы относительно него спозиционировать абсолютно .checkbox-label::before 
+для нарисовать свой квадратик */
+.checkbox {
+  position: relative;
+}
+
+.checkbox-input {
+  /* спрятать квадратик checkbox , который от браузера по-умолч */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* для чекбокс .checkbox-input в состоянии выбран (с птицей checked) 
+перейти к соседнему с ним label  .checkbox-label и закрасить его зеленым */
+/* .checkbox-input:checked+.checkbox-label {
+    color: green; */
+.checkbox-input:checked + .checkbox-label::before {
+  background-color: green;
+  /* Для нарисовать птицу внутри квадратика - иконкой можно
+  НО - к спрайту обратиться отсюда нельзя!!! */
+  background-image: url(../images/nn/instagram.svg);
+}
+
+/* подвинуть текст справа от нарисованного совего квадратика ::before */
+.checkbox-label {
+  padding-left: 24px;
+}
+
+.checkbox-label::before {
+  /* нарисовать псевдоклассом before сыой квадратик */
+  /* абсолютно спозиционироан относительно - div добавить, а то не к чему относительно позициоинироваться */
+  position: absolute;
+  /* позционировать квадратик */
+  top: 0;
+  left: 0;
+  margin-top: 5px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--color-primary-dark);
+  content: "";
+}/*# sourceMappingURL=main.css.map */
