@@ -1,0 +1,59 @@
+/* hero-section */
+.hero-section {
+  padding: 272px 0;
+  /* background-color: burlywood; */
+  /* background-image: url('../images/couple-in-bakery.jpg'); */
+  /* background-repeat: no-repeat; */
+  /* background-position: 20px 40px; */
+  /* background-position: right bottom; */
+  /* background-position: right; */
+  /* top по Y - чтобы оставались лица при вписывании картинки по background-size: cover */
+  /* background-position: center top; */
+  /* Не сохраняет пропорции */
+  /* background-size: 1000px 400px; */
+  /* background-size: cover; */
+  /* fixed При прокрутке - не двигается: */
+  /* background-attachment: fixed; */
+
+  background-image: linear-gradient(102.76deg,
+      rgba(18, 18, 17, 0.78) 2.03%,
+      rgba(18, 18, 17, 0.6) 58.46%,
+      rgba(18, 18, 17, 0) 90.36%),
+    url("../images/hero-section-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+
+  /* вместо 4х правил - все в одно: но так - лучше не делать*/
+  /* background: url('../images/couple-in-bakery.jpg') no-repeat center/top cover; */
+
+  /* h1 сучасна пекарня */
+  &__title {
+    margin-bottom: 0;
+    color: var(--color-primary-light);
+    text-align: center;
+    font-size: 128px;
+    font-weight: 900;
+    /* font-style: italic; */
+    /* text-transform: capitalize; */
+    /* text-shadow: 2px 2px 4px violet;
+  letter-spacing: 4px;
+  word-spacing: 4px;
+  white-space: nowrap; */
+  }
+
+
+
+
+}
+
+
+
+/* .hero-title span {
+  color: var(--color-brand-normal);
+} */
+
+// .hero-title .accent {
+//   /* background: rgba(18, 18, 17, 0.6);  4й параметр - прозрачность. 1 полностью прозрачный. 0 -непрозр. */
+//   color: var(--color-brand-normal);
+// }
