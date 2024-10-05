@@ -1,0 +1,14 @@
+.text-brand {
+    /* background: rgba(18, 18, 17, 0.6);  4й параметр - прозрачность. 1 полностью прозрачный. 0 -непрозр. */
+    color: var(--color-brand-normal);
+}
+
+.text-bold {
+    // перенесен из _traditions-section.scss из правила .traditions-text .brand
+    font-weight: 600;
+}
+
+.text-uppercase {
+    // перенесен из _traditions-section.scss из правила .traditions-text .uppercase
+    text-transform: uppercase;
+}
