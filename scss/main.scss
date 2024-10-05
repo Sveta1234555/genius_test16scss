@@ -63,6 +63,8 @@
 
 @import 'base';
 
+@import 'utils/texts';
+
 // /* Для скрыть визуально h2 в section. Но для браузера останется. так надо */
 // .visually-hidden {
 //     position: absolute;
@@ -323,7 +325,7 @@
 // }
 
 // hero-section перенести в /components/_hero-section.scss 
-@import 'components/hero-section';
+@import './layouts/hero-section';
 
 
 @import './utils/mixins';
@@ -385,84 +387,86 @@ color там указан как основной для всей страниц
     color: var(--color-brand-dark);
 }
 
-/* Traditions section */
-/* чтобы между1 и 2й секциями сделать 96,а пока есть 48.
-Внимание! ДОбалвлен класс секции 2й через пробел.
-в html :     <section class="traditions-section section" id="traditions-section"> 
-Это в css обращение к class, а не к id. 
-К Id из css НЕ ОБРАЩАТЬСЯ!!!*/
-.traditions-section {
-    padding-top: 96px;
-}
+// /* Traditions section */
+// /* чтобы между1 и 2й секциями сделать 96,а пока есть 48.
+// Внимание! ДОбалвлен класс секции 2й через пробел.
+// в html :     <section class="traditions-section section" id="traditions-section"> 
+// Это в css обращение к class, а не к id. 
+// К Id из css НЕ ОБРАЩАТЬСЯ!!!*/
+// .traditions-section {
+//     padding-top: 96px;
+// }
 
-/* div включает все содржимое секции Традиции (H2, p,p, img)*/
-.traditions-container {
-    /* контент (H2, p,p) и img располагает горизонтально. т.к. По-умолч flex-direction: row */
-    display: flex;
-    /* между текстовым контентом (H2, p,p) и  img (именно самой картинкой, а не блоком шире, в которую она помещена в макете Figma)
-расстояние 104px. Раздвигаем эти 2 div с пом. gap */
-    /* gap: 100px; делаем иначе размещение (H2, p,p) и img  2.1 +2.2+2.3.  и в div .traditions-content . 
-  2.1. gap меньше (при уменьшении будет не статично 100, а меньше)  
-  2.2 .traditions-content     max-width: 710px; 
-  2.3.   раздвинуть по сторонам элементы , к краям
-   */
-    /* 2.1 +2.2+2.3  */
-    /* 2.2. ограничить div content с текстом размером 710 по ширине В div .traditions-content*/
-    /* max-width: 710px; */
-    /*2.3. раздвинуть по сторонам элементы , к краям*/
-    justify-content: space-between;
-    /* 2.1.чтобы не сталикивались элементы ри уменьшении ширины экрана */
-    gap: 40px;
-}
+// /* div включает все содржимое секции Традиции (H2, p,p, img)*/
+// .traditions-container {
+//     /* контент (H2, p,p) и img располагает горизонтально. т.к. По-умолч flex-direction: row */
+//     display: flex;
+//     /* между текстовым контентом (H2, p,p) и  img (именно самой картинкой, а не блоком шире, в которую она помещена в макете Figma)
+// расстояние 104px. Раздвигаем эти 2 div с пом. gap */
+//     /* gap: 100px; делаем иначе размещение (H2, p,p) и img  2.1 +2.2+2.3.  и в div .traditions-content . 
+//   2.1. gap меньше (при уменьшении будет не статично 100, а меньше)  
+//   2.2 .traditions-content     max-width: 710px; 
+//   2.3.   раздвинуть по сторонам элементы , к краям
+//    */
+//     /* 2.1 +2.2+2.3  */
+//     /* 2.2. ограничить div content с текстом размером 710 по ширине В div .traditions-content*/
+//     /* max-width: 710px; */
+//     /*2.3. раздвинуть по сторонам элементы , к краям*/
+//     justify-content: space-between;
+//     /* 2.1.чтобы не сталикивались элементы ри уменьшении ширины экрана */
+//     gap: 40px;
+// }
 
-.traditions-content {
-    /* 2.2. ограничить div content с текстом размером 710 по ширине */
-    max-width: 710px;
-}
+// .traditions-content {
+//     /* 2.2. ограничить div content с текстом размером 710 по ширине */
+//     max-width: 710px;
+// }
 
-/* отступ от h2 до p в секции 2 traditions (теперь3)  */
-.traditions-title {
-    margin-bottom: 42px;
-}
+// /* отступ от h2 до p в секции 2 traditions (теперь3)  */
+// .traditions-title {
+//     margin-bottom: 42px;
+// }
 
-/* .traditions-text span { */
-.traditions-text .brand {
-    color: var(--color-brand-normal);
-    font-weight: 600;
-}
+// /* .traditions-text span { */
+// .traditions-text .brand {
+//     color: var(--color-brand-normal);
+//     font-weight: 600;
+// }
 
-/* через пробел - это вложенный класс любого уровня (через ">" вложенный только первого уровня)
-<p class="traditions-text">
-      <span class="brand uppercase">shop bakery</span>
-*/
-.traditions-text .uppercase {
-    text-transform: uppercase;
-}
+// /* через пробел - это вложенный класс любого уровня (через ">" вложенный только первого уровня)
+// <p class="traditions-text">
+//       <span class="brand uppercase">shop bakery</span>
+// */
+// .traditions-text .uppercase {
+//     text-transform: uppercase;
+// }
 
-/* Ограничить ширину текста половной всего блока . произвольно сами решили . вместо br */
-/* ограничить ширину только2-го параграфа <p>   2 способа. ПОдробнее пробы nth-child() см. inf8_2.txt*/
-/* .traditions-text:nth-child(3) {
-  max-width: 360px;
-} */
-/* .traditions-text:last-child {
-  max-width: 340px;
-} */
+// /* Ограничить ширину текста половной всего блока . произвольно сами решили . вместо br */
+// /* ограничить ширину только2-го параграфа <p>   2 способа. ПОдробнее пробы nth-child() см. inf8_2.txt*/
+// /* .traditions-text:nth-child(3) {
+//   max-width: 360px;
+// } */
+// /* .traditions-text:last-child {
+//   max-width: 340px;
+// } */
 
-/* Без пробела - это этого же уровня этот же сам тэг, но с 2м классом
-<p class="traditions-text limited"> 
-У .traditions-text есть еще и класс limited  .          */
-.traditions-text.limited {
-    max-width: 330px;
-}
+// /* Без пробела - это этого же уровня этот же сам тэг, но с 2м классом
+// <p class="traditions-text limited"> 
+// У .traditions-text есть еще и класс limited  .          */
+// .traditions-text.limited {
+//     max-width: 330px;
+// }
 
-/* Так работает тоже: */
-/* .traditions-content .limited {
-  background-color: red;
-} */
+// /* Так работает тоже: */
+// /* .traditions-content .limited {
+//   background-color: red;
+// } */
 
-/* .traditions-container .limited {
-  background-color: aqua;
-} */
+// /* .traditions-container .limited {
+//   background-color: aqua;
+// } */
+
+@import 'layouts/traditions-section';
 
 /* Chefs section */
 
