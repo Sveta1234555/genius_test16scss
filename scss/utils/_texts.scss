@@ -3,6 +3,10 @@
     color: var(--color-brand-normal);
 }
 
+.text-brand-dark {
+    color: var(--color-brand-dark);
+}
+
 .text-bold {
     // перенесен из _traditions-section.scss из правила .traditions-text .brand
     font-weight: 600;
