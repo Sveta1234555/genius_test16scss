@@ -1,0 +1,159 @@
+/* Chefs section */
+
+// .chefs-title {
+// .chefs_section__title {
+.chefs-section {
+  &__title {
+    /* для расположить линии before after по сторонам этого заголовка hw*/
+    position: relative;
+    /* чтобы в 2 строки h2 стал, как на макете Фигма */
+    /* max-width: 520px;  так в 3 строки, а не 2 */
+
+    /* убрали т.к. сделали br */
+    /* max-width: 532px; */
+
+    /* от заголовка h2 до списка настя-влад в секц. 3 (теперь 4) Шефы */
+    /* margin-bottom: 80px; */
+    /* 0 auto добавлено для центрирования h2 относительно своей секции. Класс centered - здесь недостасточно */
+    margin: 0 auto 80px;
+
+    /* Псевдоэлемент (after before):   для h2*/
+    // .chefs-title::before,
+    // .chefs-title::after {
+
+    &::before,
+    &::after {
+      position: absolute;
+      bottom: 24px;
+      /* чтобы задавать высоту и ширину сдеелать block. по-умолч псевдо-элементы after before -  Inline и не учитывают w h */
+
+      /* Назначили after before «position: absolute» 
+  элементы автоматически становятся блоковыми.
+  Теперь display block Ненуен, они уже стали такими 
+  из-за position=absolute */
+      /* display: block; */
+
+      width: 352px;
+
+      /* height: 2px;  вариант2 реализации
+  background-color: #CFCFBC; */
+      border: 2px solid var(--color-brand-light);
+      content: "";
+
+      /* мод10 Для добавить svg Через псевдоэлемент - не получилось */
+      /* height: 50px;
+  background-image: url("../images/logo.svg");
+  position: absolute;
+  background-repeat: no-repeat; */
+      /* background-size: cover; */
+    }
+
+    // .chefs-title::before {
+    &::before {
+      /* для подвинуть линию before влево на ее ширину 352px */
+      /* относительно его элемента h2, к которому он присоединен */
+
+      /* перенесли вверх, одинак для after before */
+      /* position: absolute; */
+
+      /* top: 0; он и так изначально тут */
+      /* left: -352px; */
+      /* + 8px - зазор между границей H2 слева и линией before
+  352+8=360 */
+      /* left: -360px; */
+
+      /* убрали ограничение max-width=352 у chefs-title  (h2),
+     h2 стал шириной на всЮ страницу.
+     отсчет от границ H2 для after before */
+      left: 0;
+      /* к нижней границе по вертикали , на расстояние по макету снизу 24 Px*/
+      /* перенесли вверх, одинак правило для after before */
+      /* bottom: 24px; */
+    }
+
+    // .chefs-title::after {
+    &::after {
+      /* для подвинуть линию after вправо на ее ширину 352px */
+      /* относительно его элемента h2, к которому он присоединен */
+
+      /* перенесли вверх, одинак для after before */
+      /* position: absolute; */
+
+      /* top: 0; он и так изначально тут */
+      /* right: -352px; */
+      /* + 8px - зазор между границей H2  и линией after: 
+    352+8=360 */
+      /* right: -360px; */
+
+      /* убрали ограничение max-width=352 у chefs-title  (h2),
+   h2 стал шириной на всЮ страницу.
+   отсчет от границ H2 для after before */
+      right: 0;
+
+      /* к нижней границе по вертикали , на расстояние по макету снизу 24 Px*/
+
+      /* перенесли вверх, одинак правило для after before */
+      /* bottom: 24px; */
+    }
+
+  }
+
+  // .chefs-list {
+  &__list {
+    display: flex;
+    // flex-direction: column;    так в образце. Работает без этого
+    /* чтобы gap стал между элементами flex */
+    gap: 30px;
+    /* На развитие - при добавлении карточек - чтобы переносились на след строку */
+    flex-wrap: wrap;
+    /* На развитие - увеличить row-gap отступ между строчками карточек. после проверки f12 с болшим количеством карточек */
+    gap: 40px 30px;
+  }
+
+  // .chefs-item {
+  &__item {
+    flex-basis: calc((100% - 30px) / 2);
+  }
+
+}
+
+
+
+// .chef-card {
+//     display: flex;
+//     gap: 30px;
+// }
+
+// .chef-photo {
+//     /* Обрезать фотки шефов Настя ВЛад слева снизу */
+//     border-radius: 4px 4px 4px 200px;
+//     /* box-shadow: -16px 16px 0 0 white, -16px 16px 0 2px var(--color-secondary-dark); */
+//     box-shadow: -16px 16px 0 0 var(--color-primary-light),
+//         -16px 16px 0 2px var(--color-secondary-dark);
+// }
+
+// .chef-title {
+//     /* От Настя, Влад (h2) до параграфа одинаково по 16px: */
+//     margin-bottom: 16px;
+//     font-size: 40px;
+//     font-weight: 600;
+//     /* line-height: 1.5; не пишем. т.к. 60/40  =1.5  наследуются от body . НО - у меня эти 60px Figma не пишется!!! */
+// }
+
+// /* так недостаточно , остается последний параграф 18 по-умолч, а не 0 */
+// /* .chef-text p:not(:last-child) {
+//   отступы между параграфами - 24,кроме посднего
+//   margin-bottom: 24px;
+// } */
+
+// .chef-text p {
+//     /* отступы между параграфами - 24 */
+//     margin-bottom: 24px;
+// }
+
+// .chef-text p:last-child {
+//     /* отступ последнему параграфу - 0 */
+//     margin-bottom: 0;
+// }
+
+// часть из _chefs-section.scss перенесена в /layouts/_chef-card.scss 

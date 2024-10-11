@@ -1,0 +1,212 @@
+/* Form */
+//input весь перенесен jnсюда из _forms.scss  в /components/_item.scss
+// // .form-field {
+// input {
+//     /* Для альтернативной версии расположения label, и перемещения его над input при фокусе на input */
+//     position: relative;
+//     // margin-bottom: 32px;  разные для модальной формы 32, для contact-section  24px
+
+//     // .form-label {
+//     &__label {
+//         /* Для альтернативной версии расположения label, и перемещения его над input при фокусе на input */
+//         position: absolute;
+//         /* display: block; убрали, т.к. position abslolute делает элмент блоком по-умолчанию*/
+//         top: 16px;
+//         /* на макете слева от label до div */
+//         left: 42px;
+//         /* для перемещения label над input */
+//         /* transform: translate(-36px, -40px);  перемещен В .form-input:focus + .form-label */
+//         /* transition: transform 0.3s;  для вар 2 , 3*/
+//     }
+
+//     // .form-input {
+//     &__control {
+//         padding: 16px 42px;
+//         /* растянуть input ппо всей ширине */
+//         width: 100%;
+//         /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+//         font-size: 16px;
+//         line-height: 1.17;
+//         border: 1px solid var(--color-secondary-dark);
+//         border-radius: 8px;
+//         /* фон поля ввода input прозрачный */
+//         background-color: transparent;
+
+//         // .form-input:focus {
+//         &:focus {
+//             border-color: var(--color-brand-normal);
+//             /* убрать обводку синюю по-умолч от браузера, иначен невидно зеленого border в фокусе поля ввода */
+//             outline: none;
+//         }
+
+//         //ненадо - для теста был disabled
+//         /* визуализировать , что элемент деактивиорован на html  mod15 */
+//         /* mod15 */
+//         // .form-input:disabled {
+//         &:disabled {
+//             border-color: lightgray;
+//         }
+
+//         //ненадо - для теста был required
+//         /* mod15 Псевдокласи стану */
+//         // .form-input:required {
+//         &:required {
+//             border-color: red;
+//         }
+
+//         // .form-input::placeholder {
+//         &::placeholder {
+//             /* ПОдсказка вместо label внутри поля ввода input */
+//             color: var(--color-secondary-dark);
+//             /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+//             font-size: 16px;
+//             line-height: 1.17;
+//         }
+
+//         // .form-input:focus::placeholder {
+//         &:focus::placeholder {
+//             /* цвет букв label менять при фокусе в input */
+//             color: var(--color-primary-dark);
+//         }
+
+//         //ненадо - для теста был 
+//         // .form-input:disabled::placeholder {
+//         &:disabled::placeholder {
+//             color: lightgray;
+//         }
+
+//         /* mod15 */
+//         //ненадо - для теста был
+//         // .form-input:placeholder-shown {
+//         &:placeholder-shown {
+//             background-color: blue;
+//         }
+
+//     }
+
+// }
+
+/* Когда внутри form  будет фокус в любом элемента, к ней добавляются стили ( рамка будет черной у всей формы) */
+/* .form:focus-within {
+  border: 1px solid black;
+} */
+
+/* Когда внутри form-field (div) будет фокус, к нему добавляются стили ( рамка будет черной) */
+/* .form-field:focus-within {
+  border: 1px solid black;
+} */
+
+
+// // .form-label {
+// &__label {
+//     /* Для альтернативной версии расположения label, и перемещения его над input при фокусе на input */
+//     position: absolute;
+//     /* display: block; убрали, т.к. position abslolute делает элмент блоком по-умолчанию*/
+//     top: 16px;
+//     /* на макете слева от label до div */
+//     left: 42px;
+//     /* для перемещения label над input */
+//     /* transform: translate(-36px, -40px);  перемещен В .form-input:focus + .form-label */
+//     /* transition: transform 0.3s;  для вар 2 , 3*/
+// }
+
+
+/* для перемещения label над input */
+/* вар2 */
+/* Когда form-input в фокусе, то label, который лежит рядом, должен принимать такой стиль */
+/* .form-input:focus+.form-label { */
+/* для перемещения label над input */
+/* transform: translate(-36px, -40px);
+} */
+
+
+/* вар 3  */
+/* перемещения Label над input, Когда form-input в фокусе (нендао перемещать label d html под input), должен принимать такой стиль */
+/* псевдокласс focus-within */
+/* .form-field:focus-within .form-label { */
+/* для перемещения label над input */
+/* transform: translate(-36px, -40px);
+} */
+
+// // .form-input {
+// &__control {
+//     padding: 16px 42px;
+//     /* растянуть input ппо всей ширине */
+//     width: 100%;
+//     /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+//     font-size: 16px;
+//     line-height: 1.17;
+//     border: 1px solid var(--color-secondary-dark);
+//     border-radius: 8px;
+//     /* фон поля ввода input прозрачный */
+//     background-color: transparent;
+// }
+
+
+// /* mod15 */
+// // .form-input:placeholder-shown {
+// &:placeholder-shown {
+//     background-color: blue;
+// }
+
+/* .form-input:not(:placeholder-shown) {
+  background-color: blue;
+} */
+
+
+// // .form-input:focus {
+// &:focus {
+//     border-color: var(--color-brand-normal);
+//     /* убрать обводку синюю по-умолч от браузера, иначен невидно зеленого border в фокусе поля ввода */
+//     outline: none;
+// }
+
+// /* mod15 Псевдокласи стану */
+// // .form-input:required {
+// &:required {
+//     border-color: red;
+// }
+
+
+
+// /* визуализировать , что элемент деактивиорован на html  mod15 */
+// /* mod15 */
+// // .form-input:disabled {
+// &:disabled {
+//     border-color: lightgray;
+// }
+
+// // .form-input:disabled::placeholder {
+// &:disabled::placeholder {
+//     color: lightgray;
+// }
+
+/* mod15 -end*/
+
+// // .form-input::placeholder {
+// &::placeholder {
+//     /* ПОдсказка вместо label внутри поля ввода input */
+//     color: var(--color-secondary-dark);
+//     /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+//     font-size: 16px;
+//     line-height: 1.17;
+// }
+
+// // .form-input:focus::placeholder {
+// &:focus::placeholder {
+//     /* цвет букв label менять при фокусе в input */
+//     color: var(--color-primary-dark);
+// }
+
+
+// //Перенсти стили кнопки из _forms.scss в _Contact-section.scss
+// //button - общий блок,используется в модальной форме, header , footer , contact-section
+// .form-button {
+//     /* центрировать кнопку на форме */
+//     /* кнопка по-умолч не является блоком. Она display-inlineblock (f12 видно) */
+//     /* сделать кнопку на офрме block, чтобы центрировать ее с пом. margin 0 auto */
+//     display: block;
+//     // margin: 0 auto;
+//     /* доб24 px снизу отступ от кнопки */
+//     margin: 0 auto 24px;
+// }

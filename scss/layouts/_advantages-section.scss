@@ -1,0 +1,29 @@
+/* advantages section */
+
+.advantages-section {
+    /* перенсен сюда bcgr из .advantages-list. чтобы фон растягивался с section до границ. слева справа */
+    background: var(--color-brand-normal);
+    /* отступы сверху-снизу от меню padding 16 top bottom. padding дочернего элемента div внутри родительского section advantages-section */
+    padding: 16px 0;
+
+    &__list {
+        /* ul */
+        /* для разместить элементыменю горизонтально */
+        display: flex;
+        /* для сделать одинак расстояния между элементами меню. растягивает элементы по сторонам */
+        justify-content: space-between;
+        /* чтобы не сЪезжались при уменеьшении горизонтальном экрана элементы меню : */
+        gap: 40px;
+        /* color: var(--color-primary-light); перенесен в .advantages-item*/
+        /* background: var(--color-brand-normal); перенсен в .advantages-section*/
+    }
+
+    &__item {
+        /* li */
+        /* цвет перенесен из .advantages-list сюда */
+        color: var(--color-primary-light);
+        font-size: 20px;
+        font-weight: 300;
+    }
+
+}

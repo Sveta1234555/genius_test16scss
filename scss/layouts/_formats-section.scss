@@ -1,0 +1,48 @@
+/* Formats section */
+//ошибка была в этом, поломалась секция на сайте
+// .formats-container {
+//     display: flex;
+//     /* выставить кнопки по вспомог. оси вертикальной посредине */
+//     align-items: center;
+//     /* между кнопками и div из 3-х карточек с обеих сторон*/
+//     gap: 32px;
+
+.formats-section {
+    &__container {
+        display: flex;
+        /* выставить кнопки по вспомог. оси вертикальной посредине */
+        align-items: center;
+        /* между кнопками и div из 3-х карточек с обеих сторон*/
+        gap: 32px;
+    }
+
+    //перенесен из _format-card.scss
+    // .formats-title {
+    &__title {
+        /* от h2 Walrus...  до p */
+        margin-bottom: 80px;
+    }
+
+    &__list {
+        /* расположить карточки горизоантально */
+        display: flex;
+        flex-wrap: wrap;
+        /*переносить карточки из расч. 100% / 3*/
+        gap: 20px;
+        /*на макете так*/
+    }
+
+    // .format-item  надо {
+    &__item {
+        /* 40 px это 2 gap по 20 px */
+        flex-basis: calc((100% - 40px) / 3);
+    }
+}
+
+
+
+// // .formats-item {
+// .format-item {
+//     /* 40 px это 2 gap по 20 px */
+//     flex-basis: calc((100% - 40px) / 3);
+// }

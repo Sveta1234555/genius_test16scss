@@ -1,0 +1,29 @@
+// form-terms
+
+.form-terms {
+    /* текст под кнопкой на форме */
+    /* Для Центрирвоать текст под кнопкой – margin: 0 auto */
+    margin: 0 auto;
+    max-width: 220px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+    /* color inherit от body */
+    text-align: center;
+
+    .form-terms__link {
+        /* по-умолч ссылка - синяя, поменять на цвет по дизайну */
+        color: var(--color-primary-dark);
+        /* отступ до линии подчеркивания ссылки по-умолч отстутствует, а надо 2px */
+        text-underline-offset: 2px;
+    }
+}
+
+//перенесено вверх  в .form-terms
+// // .form-terms-link {
+// .form-terms__link {
+//     /* по-умолч ссылка - синяя, поменять на цвет по дизайну */
+//     color: var(--color-primary-dark);
+//     /* отступ до линии подчеркивания ссылки по-умолч отстутствует, а надо 2px */
+//     text-underline-offset: 2px;
+// }

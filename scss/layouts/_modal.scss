@@ -1,0 +1,101 @@
+/* Мodal */
+.backdrop {
+    /* затемененный фон под активным модальным окном-  фиксированный элемент */
+    position: fixed;
+    /* растягиваться на всю ширину экрана. */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* фон - полупрозрачный черный цвет */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* для расположить модальное окно по центру backdrop */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* модальное окно отодвинуть от границ  - относительно родительского Padding-Ом */
+    padding: 20px 0;
+    /* анимация ПЕРЕХОД- плавнее показывать модальное окно */
+    transition: opacity 0.3s, visibility 0.3s;
+
+
+    /* .modal.is-hidden { */
+    // .backdrop.is-hidden {
+    &.is-hidden {
+        /* когда к backdrop добавляется класс 'is-hidden', надо его- окно прятать: */
+        /* display: none; */
+
+        /* в2 реализации  */
+        /* делает окно прозрачным , но еще можно нажать на любой контент внутри формы, поля ввода*/
+        opacity: 0;
+        /* чтобы нельзя нажать на элементы скрытой формы */
+        /* Не сделать окно прозрачным , а  спрятать его, нажать нельзя уже на элементы на окне. */
+        visibility: hidden;
+        /* чтобы вообще нельзя было нажать на окно */
+        pointer-events: none;
+    }
+
+}
+
+
+
+.modal {
+    /* модальное окно */
+    /* для расположить относительно него кнопку ккрестик close */
+    position: relative;
+    /* для больших экранов не больше 880px модальное окно */
+    /* если окно меньше 880 то модальное окно будет занимать 100% окна по ширине*/
+    /* width: 880px; */
+    width: 100%;
+    max-width: 880px;
+    /* height: 880px; */
+    height: 100%;
+    max-height: 880px;
+    /* на макете вокруг заголовка - формы такие с 3-х сторон отступы */
+    padding: 128px;
+    background-color: var(--color-primary-light);
+    border-radius: 32px;
+    /* чтобы скроллилось модальное окно когда не помещается содержимаое */
+    overflow-y: auto;
+
+    // .modal-btn-close {
+    // .modal__btn-close {
+    &__btn-close {
+        /* кнопка крестик close */
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+
+    &__title {
+        margin-bottom: 8px;
+        font-size: 32px;
+        font-weight: 900;
+        line-height: 1.5;
+        text-align: center;
+
+        // @media screen and (min-width: $bp-tablet) {
+        //     font-size: 64px;
+        //     line-height: 1.3;
+        // }
+    }
+
+    &__text {
+        margin-bottom: 40px;
+        text-align: center;
+
+        // @media screen and (min-width: $bp-tablet) {
+        //     margin-bottom: 72px;
+        // }
+    }
+
+    &__form-field {
+        margin-bottom: 32px;
+    }
+
+    //Замовити дзвінок
+    &__button {
+        display: block;
+        margin: 0 auto 24px;
+    }
+}

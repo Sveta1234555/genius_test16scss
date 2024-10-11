@@ -5,11 +5,12 @@
 Это в css обращение к class, а не к id. 
 К Id из css НЕ ОБРАЩАТЬСЯ!!!*/
 .traditions-section {
-    padding-top: 96px;
-}
+  padding-top: 96px;
 
-/* div включает все содржимое секции Традиции (H2, p,p, img)*/
-.traditions-container {
+
+  /* div включает все содржимое секции Традиции (H2, p,p, img)*/
+  // .traditions-container {
+  &__container {
     /* контент (H2, p,p) и img располагает горизонтально. т.к. По-умолч flex-direction: row */
     display: flex;
     /* между текстовым контентом (H2, p,p) и  img (именно самой картинкой, а не блоком шире, в которую она помещена в макете Figma)
@@ -26,17 +27,34 @@
     justify-content: space-between;
     /* 2.1.чтобы не сталикивались элементы ри уменьшении ширины экрана */
     gap: 40px;
-}
+  }
 
-.traditions-content {
+  &__content {
     /* 2.2. ограничить div content с текстом размером 710 по ширине */
     max-width: 710px;
+  }
+
+  /* отступ от h2 до p в секции 2 traditions (теперь3)  */
+  &__title {
+    margin-bottom: 42px;
+  }
+
+  // .traditions-text.limited {  для БЭМ:
+  // &__text--limited {
+  //   max-width: 330px;
+  // }
+  // модификаторы прописываются в следующем подуровне и через амперсанд
+  &__text {
+    &--limited {
+      max-width: 330px;
+    }
+  }
+
 }
 
-/* отступ от h2 до p в секции 2 traditions (теперь3)  */
-.traditions-title {
-    margin-bottom: 42px;
-}
+
+
+
 
 // /* .traditions-text span { */
 // .traditions-text .brand {
@@ -72,9 +90,16 @@
 /* Без пробела - это этого же уровня этот же сам тэг, но с 2м классом
 <p class="traditions-text limited"> 
 У .traditions-text есть еще и класс limited  .          */
-.traditions-text.limited {
-    max-width: 330px;
-}
+
+
+
+// // .traditions-text.limited {  для БЭМ:
+// &__text--limited {
+//   max-width: 330px;
+// }
+
+// по БЭМ - &__text--limited  перенесен вверх в traditions-section:
+
 
 /* Так работает тоже: */
 /* .traditions-content .limited {
