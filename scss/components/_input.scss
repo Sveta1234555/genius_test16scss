@@ -1,0 +1,88 @@
+//input весь перенесен сюда из _forms.scss
+
+// .form-field {
+.input {
+    /* Для альтернативной версии расположения label, и перемещения его над input при фокусе на input */
+    position: relative;
+    // margin-bottom: 32px;  разные для модальной формы 32, для contact-section  24px
+
+    // .form-label {
+    &__label {
+        /* Для альтернативной версии расположения label, и перемещения его над input при фокусе на input */
+        position: absolute;
+        /* display: block; убрали, т.к. position abslolute делает элмент блоком по-умолчанию*/
+        top: 16px;
+        /* на макете слева от label до div */
+        left: 42px;
+        /* для перемещения label над input */
+        /* transform: translate(-36px, -40px);  перемещен В .form-input:focus + .form-label */
+        /* transition: transform 0.3s;  для вар 2 , 3*/
+    }
+
+    // .form-input {
+    // input (был до scss БЭМ) ->  control
+    &__control {
+        padding: 16px 42px;
+        /* растянуть input ппо всей ширине */
+        width: 100%;
+        /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+        font-size: 16px;
+        line-height: 1.17;
+        border: 1px solid var(--color-secondary-dark);
+        border-radius: 8px;
+        /* фон поля ввода input прозрачный */
+        background-color: transparent;
+
+        // .form-input:focus {
+        &:focus {
+            border-color: var(--color-brand-normal);
+            /* убрать обводку синюю по-умолч от браузера, иначен невидно зеленого border в фокусе поля ввода */
+            outline: none;
+        }
+
+        // //ненадо - для теста был disabled
+        // /* визуализировать , что элемент деактивиорован на html  mod15 */
+        // /* mod15 */
+        // // .form-input:disabled {
+        // &:disabled {
+        //     border-color: lightgray;
+        // }
+
+        // //ненадо - для теста был required
+        // /* mod15 Псевдокласи стану */
+        // // .form-input:required {
+        // &:required {
+        //     border-color: red;
+        // }
+
+        // .form-input::placeholder {
+        &::placeholder {
+            /* ПОдсказка вместо label внутри поля ввода input */
+            color: var(--color-secondary-dark);
+            /* шрифт текста input по макету , а font-weight 400  наследуется от body*/
+            font-size: 16px;
+            line-height: 1.17;
+        }
+
+        // .form-input:focus::placeholder {
+        &:focus::placeholder {
+            /* цвет букв label менять при фокусе в input */
+            color: var(--color-primary-dark);
+        }
+
+        // //ненадо - для теста был 
+        // // .form-input:disabled::placeholder {
+        // &:disabled::placeholder {
+        //     color: lightgray;
+        // }
+
+        // /* mod15 */
+        // //ненадо - для теста был
+        // // .form-input:placeholder-shown {
+        // &:placeholder-shown {
+        //     background-color: blue;
+        // }
+
+    }
+
+}
