@@ -11,10 +11,26 @@ color там указан как основной для всей страниц
     padding: 48px 0;
 
     &__title {
-        font-size: 64px;
+        //1. моб. версия
+        font-size: 32px;
+        line-height: 1.5; //1.5 = 32/48
         font-weight: 900;
-        /* 1.3 = 84px (line-height) / 64px (font-size) */
-        line-height: 1.3;
+        //перенесено вниз в десктоп-версию
+        // font-size: 64px;
+        // font-weight: 900;
+        // /* 1.3 = 84px (line-height) / 64px (font-size) */
+        // line-height: 1.3;
+
+
+        @media screen and (min-width: $bp-tablet) {
+            // перенесно сюда сверху, здесь теперь десктоп-версия
+            font-size: 64px;
+            // font-weight: 900;   //возьмется сверху с моб.версии, здест такой же
+            /* 1.3 = 84px (line-height) / 64px (font-size) */
+            line-height: 1.3;
+
+        }
+
 
         &--centered {
             text-align: center;

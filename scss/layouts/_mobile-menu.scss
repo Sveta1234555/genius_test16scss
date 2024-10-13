@@ -1,0 +1,32 @@
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    // вместо width: 100%; height: 100%; можно написать right: 0; bottom: 0;
+    // width: 100%;
+    // height: 100%;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-primary-light);
+    //по-умолч подвинуть окно меню за границу экрана
+    //-100% выезжало бы слева, 100% - выезжает справа, типа от кнопочки справа
+    transform: translateX(100%);
+    // плавность перехода (появления меню)
+    transition: transform 0.3s;
+
+    &.is-open {
+        //если есть класс is-open (ф12 возле div class=”mobile-menu”)
+        // вернуть окно меню по оси х в 0
+        transform: translateX(0);
+
+    }
+
+    &__btn-close {
+        position: absolute;
+        // расположить сверху справа
+        top: 16px;
+        right: 24px;
+        //без margin
+    }
+
+}

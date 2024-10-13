@@ -1,29 +1,77 @@
 /* advantages section */
 
 .advantages-section {
-    /* перенсен сюда bcgr из .advantages-list. чтобы фон растягивался с section до границ. слева справа */
-    background: var(--color-brand-normal);
     /* отступы сверху-снизу от меню padding 16 top bottom. padding дочернего элемента div внутри родительского section advantages-section */
     padding: 16px 0;
+    /* перенсен сюда bcgr из .advantages-list. чтобы фон растягивался с section до границ. слева справа */
+    // перенсен в десктопную версию, ниже здесь
+    // background: var(--color-brand-normal);
+
+    // на десктопе ОТ >1280px 
+    @media screen and (min-width: $bp-desktop) {
+        // фон должен применяться только на десктопной версии на всю секцию
+        background: var(--color-brand-normal);
+    }
 
     &__list {
         /* ul */
-        /* для разместить элементыменю горизонтально */
+        //перенсли в десктопную часть
+        // /* для разместить элементыменю горизонтально */
+        // display: flex;
+        // /* для сделать одинак расстояния между элементами меню. растягивает элементы по сторонам */
+        // justify-content: space-between;
+        // /* чтобы не сЪезжались при уменеьшении горизонтальном экрана элементы меню : */
+        // gap: 40px;
+        // /* color: var(--color-primary-light); перенесен в .advantages-item*/
+        // /* background: var(--color-brand-normal); перенсен в .advantages-section*/
+
+        // мобильная часть - меню один под одним вниз
         display: flex;
-        /* для сделать одинак расстояния между элементами меню. растягивает элементы по сторонам */
-        justify-content: space-between;
-        /* чтобы не сЪезжались при уменеьшении горизонтальном экрана элементы меню : */
-        gap: 40px;
-        /* color: var(--color-primary-light); перенесен в .advantages-item*/
-        /* background: var(--color-brand-normal); перенсен в .advantages-section*/
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px 40px;
+        background-color: var(--color-brand-light);
+        border-radius: 24px;
+
+        // на десктопе ОТ >1280px 
+        @media screen and (min-width: $bp-desktop) {
+            /* для разместить элементы меню горизонтально */
+            // display: flex;  убрали, возьмется из мобильнйо части здесь же выше
+            /* для сделать одинак расстояния между элементами меню. растягивает элементы по сторонам */
+            justify-content: space-between;
+            /* чтобы не сЪезжались при уменеьшении горизонтальном экрана элементы меню : */
+            gap: 40px;
+            // добавить правило, т.к. в мобильно выше установлен column
+            // а в десктопной нужен row - Горизонтально
+            flex-direction: row;
+            //чтобы убрать для десктопа серый фон от моибльного варианта
+            background-color: transparent;
+            //чтобы убрать на десктопе закругление от мобильной версии
+            border-radius: 0;
+            //добавлены в моб. версию, - убрать здесь в десктопной
+            padding: 0;
+        }
     }
 
     &__item {
         /* li */
         /* цвет перенесен из .advantages-list сюда */
-        color: var(--color-primary-light);
+        // перенесли вниз в десктоп 
+        // color: var(--color-primary-light);
+        // font-size: 20px;
+        // font-weight: 300;
+
+        // мобильная версия
         font-size: 20px;
+        // line-height: 1.5;  21/15   наследуется От body
         font-weight: 300;
+
+        // на десктопе ОТ >1280px 
+        @media screen and (min-width: $bp-desktop) {
+            color: var(--color-primary-light);
+            font-size: 20px;
+            // font-weight: 300;   возьмется сверху с моб.версии
+        }
     }
 
 }

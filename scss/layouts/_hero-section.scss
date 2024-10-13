@@ -1,6 +1,8 @@
 /* hero-section */
 .hero-section {
-  padding: 272px 0;
+  // 1. мобильная версия
+  // padding: 272px 0;   //перенесено в ч.2 ниже  tablet
+  padding: 124px 0;
   /* background-color: burlywood; */
   /* background-image: url('../images/couple-in-bakery.jpg'); */
   /* background-repeat: no-repeat; */
@@ -23,16 +25,27 @@
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
-
   /* вместо 4х правил - все в одно: но так - лучше не делать*/
   /* background: url('../images/couple-in-bakery.jpg') no-repeat center/top cover; */
 
+  // 2. таблет и десктоп версии 
+  // @media screen and (min-width: $bp-tablet) {
+  @media screen and (min-width: $bp-desktop) {
+    padding: 272px 0;
+  }
+
+
+
   /* h1 сучасна пекарня */
   &__title {
-    margin-bottom: 0;
+    // margin-bottom: 0;  перенесли в 2. десктоп
+    //для моб. 48
+    margin-bottom: 48px;
     color: var(--color-primary-light);
     text-align: center;
-    font-size: 128px;
+    // font-size: 128px;  //перенесен в десктопную часть вниз
+    font-size: 67px; //для мобильной версии по макету
+    line-height: 1; //доб. для моб.версии  line-height 66,  size 67px на макете
     font-weight: 900;
     /* font-style: italic; */
     /* text-transform: capitalize; */
@@ -40,10 +53,33 @@
   letter-spacing: 4px;
   word-spacing: 4px;
   white-space: nowrap; */
+
+    // @media screen and (min-width: $bp-tablet) {
+    // поменяли на bp-desktop чтобы шрифт становился большим только для desktop, 
+    //  а на таблеточной оставался меньше (как на мобильной)
+    @media screen and (min-width: $bp-desktop) {
+      font-size: 128px;
+      // font-weight: 900; // будет браться от моб.версии - выше эта команда есть 
+      line-height: 1.5; //надо добавить. не было написано, т.к брался наследованием от body:
+      margin-bottom: 0;
+
+    }
   }
 
+  &__button {
+    //1. моб.версия
+    // по-умолч, для мобильной версии -кнопка есть
 
+    //чтобы не дублировать код - не пишем здесь display block
+    // display: block; //чтобы отработало центрирование кнопки margin 0 auto
+    margin: 0 auto; //центрировать кнопку
 
+    // @media screen and (min-width: $bp-tablet) {
+    @media screen and (min-width: $bp-desktop) {
+      // прятать кнопку зеленую "замовити дзвинок" для планшетной версии и больше, и десктопной
+      display: none;
+    }
+  }
 
 }
 

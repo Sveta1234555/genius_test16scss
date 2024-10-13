@@ -1,0 +1,160 @@
+/* Header */
+.header {
+    /* фон был нужен до позиционирвоания Header над hero-section слоем position */
+    /* background-color: lightgrey; */
+    /* распоагаем над hero-section слоем */
+    position: absolute;
+    /* к левому верхнему углу body.
+   Для absolute
+  Відлік значень top,  left, bottom і right 
+  ведеться щодо найближчого предка з позиціонуванням,
+    відмінного від static. Якщо такого предка не буде,
+    то відлік від меж body*/
+    top: 0;
+    left: 0;
+    /* Растянуть header по ширине на 100%  */
+    width: 100%;
+    // padding-top: 32px;  //перенесли в 2.длесктопную, т.к. здесь - мобильная версия в ч.1
+    padding-top: 16px;
+
+    @media screen and (min-width: $bp-desktop) {
+        // 2.десктопная-----------------------------
+        padding-top: 32px;
+    }
+
+    &__container {
+        /* 2 блока (логотип+ меню   и   кнопка) стали горизонтально рядом
+    но align-items=stretch по-умолч - поэтому растянута кнопка по вертикали на всю высоту строки - родительского элемента (заданную наверное составом меню) */
+        display: flex;
+        /* сделать кнопку не растянутой stretch (по-умолч), а центрированной по вертикали */
+        align-items: center;
+        /* для разделить nav и кнопку при уменьшении размера экрана */
+        gap: 40px;
+    }
+
+    &__nav {
+        /* для расположить горизонтально рядом лого и меню в nav навигации */
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        /* для разделить в nav лого и меню ы при уменьшении размера экрана */
+        gap: 40px;
+    }
+
+    // это desktopFirst  -меняем на MobileFirst (дальше )
+    //     &__menu {
+    //         /* это класс <ul> */
+    //         /* для меню расположить горизонтально */
+    //         display: flex;
+    //         /* для задать расстояние между элементами меню */
+    //         gap: 64px;
+    //         /* align-items: center; */
+    //         /* Чтобы занял все свободно место в родительском элементе nav (класс  .header-nav) :
+    //   часть займет лого, а все оставшееся - меню ul */
+    //         flex-grow: 1;
+    //         /* выравнять по гоавной горизонтальной оси */
+    //         justify-content: center;
+
+
+    //         // @media screen and (max-width: var(--bp-desktop)) {  
+    //         // так с переменной для @media  не работаает
+
+    //         // @media screen and (max-width: 1208px) {
+    //         // переменные для адаптива @media использовать в синтаксисем scss ($bp-)  а не  в синтаксисе css (var(--...))
+    //         @media screen and (max-width: $bp-desktop) {
+
+    //             // убрать меню для моб версии до ширины 1280 px
+    //             display: none;
+    //         }
+    //     }
+
+
+    // поменяли на mobileFirst (сначала mobile)
+    &__menu {
+        /* это класс <ul> */
+
+        // 1.мобильная-----------------------------
+        // убрать меню для моб версии до ширины 1280 px
+        display: none;
+
+
+        // @media screen and (max-width: var(--bp-desktop)) {  
+        // так с переменной для @media  не работаает
+
+        // @media screen and (max-width: 1208px) {
+        // переменные для адаптива @media использовать в синтаксисем scss ($bp-)  а не  в синтаксисе css (var(--...))
+        // @media screen and (max-width: $bp-desktop) {
+        @media screen and (min-width: $bp-desktop) {
+            // 2.десктопная-----------------------------
+            /* для меню расположить горизонтально */
+            display: flex;
+            /* для задать расстояние между элементами меню */
+            gap: 64px;
+            /* align-items: center; */
+            /* Чтобы занял все свободно место в родительском элементе nav (класс  .header-nav) :
+  часть займет лого, а все оставшееся - меню ul */
+            flex-grow: 1;
+            /* выравнять по гоавной горизонтальной оси */
+            justify-content: center;
+        }
+    }
+
+
+    // Так можно и работает, но не по БЭМ
+    // .button {
+    // убрать меню для моб версии до ширины 1200 px
+    //     @media screen and (max-width: 1200px) {
+    //         display: none;
+    //     }
+    // }
+
+    // firstDesktop
+    // &__button {
+
+    //     // убрать меню для моб версии до ширины 1280 px
+    //     // @media screen and (max-width: 1280px) {
+    //     @media screen and (max-width: $bp-desktop) {
+    //         display: none;
+    //     }
+    // }
+
+    // Mobilefirst
+    &__button {
+        // убрать меню для моб версии до ширины 1280 px
+        display: none;
+
+        // показать меню для декстопной версии ОТ ширины 1280 px
+        @media screen and (min-width: $bp-desktop) {
+            display: block;
+        }
+    }
+
+
+    // &__burger {
+    //     // на десктопе >1200px кнопки мобильнонго меню нет
+    //     display: none;
+
+    //     // добавить кнопку 3 черточки меню для моб версии до ширины 1200 px
+    //     // @media screen and (max-width: 1280px) {
+    //     @media screen and (max-width: $bp-desktop) {
+    //         display: block;
+    //     }
+    // }
+
+    //MobileFirst 1-мобильн стили, потом 2 десктопные
+    &__burger {
+        // добавить кнопку 3 черточки меню для моб версии до ширины 1200 px
+        // display: block;   кнопка burger и так блочная
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        fill: var(--color-primary-light); //линии стали белые (были черные)
+
+        // на десктопе ОТ >1280px кнопки мобильнонго меню нет
+        @media screen and (min-width: $bp-desktop) {
+            display: none;
+        }
+    }
+}

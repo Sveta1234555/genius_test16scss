@@ -95,7 +95,7 @@
 
     //Замовити дзвінок
     &__button {
-        display: block;
+        // display: block;  //моожно здесь убрать, т.к. эта команда добалена в саму кнопку _button.scss  При адаптации _hero-section  button
         margin: 0 auto 24px;
     }
 }
