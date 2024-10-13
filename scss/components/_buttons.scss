@@ -22,6 +22,7 @@
 
 /* Псевдоклассы состояния */
 .button {
+  display: block; //чтобы сработало центрирвоание margin 0 auto кнопки при адаптации в _hero-section
   padding: 16px 32px;
   color: var(--color-primary-light);
   font-weight: 600;
