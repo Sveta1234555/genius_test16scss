@@ -8,6 +8,16 @@
     --color-background: #faf4ea;
     /* #A28268; */
     --color-secondary-normal: #a18268;
+
+    // такие переменные для @media адаптиыв не работают - делаем scss-переменные $bp-...
+    // --bp-mobile: 480px;
+    // --bp-tablet: 768px;
+    // --bp-desktop: 1280px;
+
 }
 
 // $color-primary-dark: #31261a;  //такой синтаксис можно в scss без :root 
+// переменные в синтаксисе scss - для @media... адаптива
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1280px;
