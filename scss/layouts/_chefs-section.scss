@@ -15,7 +15,15 @@
     /* от заголовка h2 до списка настя-влад в секц. 3 (теперь 4) Шефы */
     /* margin-bottom: 80px; */
     /* 0 auto добавлено для центрирования h2 относительно своей секции. Класс centered - здесь недостасточно */
-    margin: 0 auto 80px;
+    // margin: 0 auto 80px;  //пренесено в десктоп
+    margin: 0 auto 24px; //для моб - отступ от заголовка до карточки 24, по горизонтали справа слева =0, по горизонтали выровнять авто
+
+    @media screen and (min-width: $bp-desktop) {
+      // margin-bottom: 0 auto 80px; //только margin-bottom отступ от заголовка до карточки для десктопа
+      margin-bottom: 80px; //только margin-bottom отступ снизу от заголовка до карточки для десктопа
+      //по горизонтали 0 и центрирование остается от команды margin для моб.
+    }
+
 
     /* Псевдоэлемент (after before):   для h2*/
     // .chefs-title::before,
@@ -23,6 +31,7 @@
 
     &::before,
     &::after {
+      display: none; //для моб. версии спрятать декоративные псевдоэелементы линии вокруг заголовка
       position: absolute;
       bottom: 24px;
       /* чтобы задавать высоту и ширину сдеелать block. по-умолч псевдо-элементы after before -  Inline и не учитывают w h */
@@ -46,6 +55,11 @@
   position: absolute;
   background-repeat: no-repeat; */
       /* background-size: cover; */
+
+      @media screen and (min-width: $bp-desktop) {
+        // 2. десктоп-----------------------------
+        display: block; //показать декоративные линии вокруг заголовка
+      }
     }
 
     // .chefs-title::before {
@@ -101,59 +115,74 @@
   // .chefs-list {
   &__list {
     display: flex;
-    // flex-direction: column;    так в образце. Работает без этого
+    flex-direction: column; //для мобильной версмм column вертикально
+
     /* чтобы gap стал между элементами flex */
     gap: 30px;
     /* На развитие - при добавлении карточек - чтобы переносились на след строку */
     flex-wrap: wrap;
     /* На развитие - увеличить row-gap отступ между строчками карточек. после проверки f12 с болшим количеством карточек */
-    gap: 40px 30px;
+    // gap: 40px 30px;  //перенесено в десктоп
+    gap: 20px;
+
+    @media screen and (min-width: $bp-tablet) {
+      // 2.планшет  и десктоп-----------------------------
+      flex-direction: row; //для от планшета - горизонтально
+      gap: 40px 30px;
+    }
   }
 
   // .chefs-item {
   &__item {
-    flex-basis: calc((100% - 30px) / 2);
+    // flex-basis: calc((100% - 30px) / 2);  //перенесено вниз в десктоп-версию
+
+    @media screen and (min-width: $bp-tablet) {
+      // 2.планшет  и десктоп-----------------------------
+      // расчет для расположения рядом 2х карточек 
+      flex-basis: calc((100% - 30px) / 2);
+      //+gap  + direction &__list-y
+    }
+
   }
 
+
+
+  // .chef-card {
+  //     display: flex;
+  //     gap: 30px;
+  // }
+
+  // .chef-photo {
+  //     /* Обрезать фотки шефов Настя ВЛад слева снизу */
+  //     border-radius: 4px 4px 4px 200px;
+  //     /* box-shadow: -16px 16px 0 0 white, -16px 16px 0 2px var(--color-secondary-dark); */
+  //     box-shadow: -16px 16px 0 0 var(--color-primary-light),
+  //         -16px 16px 0 2px var(--color-secondary-dark);
+  // }
+
+  // .chef-title {
+  //     /* От Настя, Влад (h2) до параграфа одинаково по 16px: */
+  //     margin-bottom: 16px;
+  //     font-size: 40px;
+  //     font-weight: 600;
+  //     /* line-height: 1.5; не пишем. т.к. 60/40  =1.5  наследуются от body . НО - у меня эти 60px Figma не пишется!!! */
+  // }
+
+  // /* так недостаточно , остается последний параграф 18 по-умолч, а не 0 */
+  // /* .chef-text p:not(:last-child) {
+  //   отступы между параграфами - 24,кроме посднего
+  //   margin-bottom: 24px;
+  // } */
+
+  // .chef-text p {
+  //     /* отступы между параграфами - 24 */
+  //     margin-bottom: 24px;
+  // }
+
+  // .chef-text p:last-child {
+  //     /* отступ последнему параграфу - 0 */
+  //     margin-bottom: 0;
+  // }
+
+  // часть из _chefs-section.scss перенесена в /layouts/_chef-card.scss  ->/components/_chef-card.scss
 }
-
-
-
-// .chef-card {
-//     display: flex;
-//     gap: 30px;
-// }
-
-// .chef-photo {
-//     /* Обрезать фотки шефов Настя ВЛад слева снизу */
-//     border-radius: 4px 4px 4px 200px;
-//     /* box-shadow: -16px 16px 0 0 white, -16px 16px 0 2px var(--color-secondary-dark); */
-//     box-shadow: -16px 16px 0 0 var(--color-primary-light),
-//         -16px 16px 0 2px var(--color-secondary-dark);
-// }
-
-// .chef-title {
-//     /* От Настя, Влад (h2) до параграфа одинаково по 16px: */
-//     margin-bottom: 16px;
-//     font-size: 40px;
-//     font-weight: 600;
-//     /* line-height: 1.5; не пишем. т.к. 60/40  =1.5  наследуются от body . НО - у меня эти 60px Figma не пишется!!! */
-// }
-
-// /* так недостаточно , остается последний параграф 18 по-умолч, а не 0 */
-// /* .chef-text p:not(:last-child) {
-//   отступы между параграфами - 24,кроме посднего
-//   margin-bottom: 24px;
-// } */
-
-// .chef-text p {
-//     /* отступы между параграфами - 24 */
-//     margin-bottom: 24px;
-// }
-
-// .chef-text p:last-child {
-//     /* отступ последнему параграфу - 0 */
-//     margin-bottom: 0;
-// }
-
-// часть из _chefs-section.scss перенесена в /layouts/_chef-card.scss 
