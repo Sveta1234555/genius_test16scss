@@ -626,9 +626,10 @@
 // chefs-section перенести в /layouts/_chefs-section.scss 
 @import './layouts/chefs-section';
 
-// часть из _chefs-section.scss перенесена в /layouts/_chef-card.scss 
-@import './layouts/chef-card';
-
+// // часть из _chefs-section.scss перенесена в /layouts/_chef-card.scss 
+// @import './layouts/chef-card';
+// часть из _chefs-section.scss перенесена в /compomnents/_chef-card.scss 
+@import './components/chef-card';
 
 // /* Formats section */
 // .formats-container {
