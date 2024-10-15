@@ -5,7 +5,12 @@
 Это в css обращение к class, а не к id. 
 К Id из css НЕ ОБРАЩАТЬСЯ!!!*/
 .traditions-section {
-  padding-top: 96px;
+  // padding-top: 96px; //перенесено вниз в десктоп-версию
+  padding-top: 40px; //для моб вресии 40 между сециями advantage и traditions
+
+  @media screen and (min-width: $bp-tablet) {
+    padding-top: 96px; //отступ 1й между секциями  advantage и traditions
+  }
 
 
   /* div включает все содржимое секции Традиции (H2, p,p, img)*/
@@ -27,6 +32,7 @@
     justify-content: space-between;
     /* 2.1.чтобы не сталикивались элементы ри уменьшении ширины экрана */
     gap: 40px;
+    align-items: flex-start; //чтобы картинка не растягивалась по высоте из-за align-items: stretch по-умолч.
   }
 
   &__content {
@@ -51,7 +57,13 @@
   }
 
   &__image {
+    display: none; //убрать картинку на мобилке
     border-radius: 400px 400px 0px 0px;
+
+    @media screen and (min-width: $bp-tablet) {
+      display: block; //показать картинку от планшета
+
+    }
   }
 
 }
