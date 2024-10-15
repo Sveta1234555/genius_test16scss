@@ -1,0 +1,88 @@
+.chef-card {
+    display: flex;
+    align-items: flex-start; //иначе при уменьшении экрана при увеличении по высоте контента (при сужении текст перераспределяется вниз), картинка увеличивается по высоте контента
+    // gap: 30px; //перенесено в десктоп
+    gap: 16px; //отступ между текстом и изображением на карточке для моб меньше
+
+    @media screen and (min-width: $bp-desktop) {
+        // 2. десктоп-----------------------------
+        gap: 30px; //отступ между текстом и изображением на карточке
+    }
+
+    // .chef-photo {
+    &__photo {
+        width: 140px; //для моб. и планшета вер
+        /* Обрезать фотки шефов Настя ВЛад слева снизу */
+        border-radius: 4px 4px 4px 200px;
+        /* box-shadow: -16px 16px 0 0 white, -16px 16px 0 2px var(--color-secondary-dark); */
+        box-shadow: -16px 16px 0 0 var(--color-primary-light),
+            -16px 16px 0 2px var(--color-secondary-dark);
+
+        @media screen and (min-width: $bp-desktop) {
+            // 2.десктоп-----------------------------
+            width: 240px;
+        }
+    }
+
+    // .chef-title {
+    &__title {
+        /* От Настя, Влад (h2) до параграфа одинаково по 16px: */
+        margin-bottom: 16px;
+        // font-size: 40px;        //перенесено в десктопн
+        font-size: 24px; //доб.  для моб.
+        // line-height: не пишем. 36/24 =1.5, наследутся от body
+        font-weight: 600;
+        /* line-height: 1.5; не пишем. т.к. 60/40  =1.5  наследуются от body . НО - у меня эти 60px Figma не пишется!!! */
+
+        @media screen and (min-width: $bp-tablet) {
+            font-size: 40px; //для десктопной.
+            // line-height: не пишем. 60/40 =1.5, наследутся от body
+        }
+    }
+
+    /* так недостаточно , остается последний параграф 18 по-умолч, а не 0 */
+    /* .chef-text p:not(:last-child) {
+  отступы между параграфами - 24,кроме посднего
+  margin-bottom: 24px;
+} */
+
+
+    // не допеределан для БЭМ исходник здесь
+    //  Использоваие тэга p нежелательно. убрали
+    // // .chef-text p {
+    // &__text p {
+    //     /* отступы между параграфами - 24 */
+    //     margin-bottom: 24px;
+    // }
+
+    // // .chef-text p:last-child {
+    // &__text p:last-child {
+    //     /* отступ последнему параграфу - 0 */
+    //     margin-bottom: 0;
+    // }
+
+    // .chef-text p {
+    //  Использоваие тэга p нежелательно. убрали
+    &__text {
+        font-size: 14px; //для моб.
+        // line-height: не пишем. 21/14 =1.5, наследутся от body
+        // font-weight: тоже наследуется 300 . и моб, и десктоп
+
+        /* отступы между параграфами - 24 */
+        margin-bottom: 24px;
+
+        // .chef-text p:last-child {
+        &:last-child {
+            /* отступ последнему параграфу - 0 */
+            margin-bottom: 0;
+        }
+
+
+        @media screen and (min-width: $bp-tablet) {
+            font-size: 18px; //для десктопной. ДО этого не писали т.к. наследовался от Body
+            //а теперь вверху для мобильной прописали явно, Здесь надо переназначить
+        }
+
+
+    }
+}
