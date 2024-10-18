@@ -208,6 +208,9 @@
 // links перенести в /components/_links.scss 
 @import 'components/links';
 
+//для из swiper точки под слайдером  - сами добавили
+@import 'components/pagination';
+
 // /* Header */
 // .header {
 //     /* фон был нужен до позиционирвоания Header над hero-section слоем position */
