@@ -1,0 +1,127 @@
+ /* Format-card */
+ //  версия для решения проблем hover gradient.
+ //к ней в index.html добавить  div  - обернуть внутренность Articl-a
+ // < !-- <div class="format-card__container">был для решения проблем hover gradient-->
+ //все 3 карточки так сделать в index.hrml
+
+ // index.html:
+ // <ul class="formats-section__list">
+ //   <li class="formats-section__item">
+ //      <article class="format-card">
+ //         <--для решения проблем hover gradient-->
+ //           <div class="format-card__container">
+ //              <img class="format-card__image"
+ //                  src="./images/walrus-format.jpg"
+ //                  alt="Walrus format"
+ //              />
+ //              <h3 class="format-card__title" lang="en">Walrus</h3>
+ //              <div class="format-card__text">
+ //              <p>Площа: до 120 м2</p>
+ //              <p>Меню: розширене меню</p>
+ //              <p>Штат: 2 продавці-касири,
+ //                      2 пекарі,
+ //                      2 помічники пекаря,
+ //                      2 офіціанти-різнороби </p>
+ //               <p>Посадкові місця: є</p>
+ //            </div>
+ //            < !-- </div>был для решения проблем hover gradient -e-->
+ //        </article>
+ //   </li>
+
+
+ .format-card {
+     //перенесли ниже в &__container для решения проблем hover gradient -h
+     //  // для спозиционирвать на карточке фон-изображение. вместе с .format-image      position: absolute;
+     //  position: relative;
+     //  // для расположить текст на карточке к нижнему краю, был к верхнему
+     //  display: flex;
+     //  flex-direction: column;
+     //  justify-content: flex-end;
+
+     //  height: 444px;
+     //  padding: 24px;
+     //  background-image: linear-gradient(180deg,
+     //          rgba(49, 38, 26, 0) 55.21%,
+     //          rgba(49, 38, 26, 0.71) 72.92%,
+     //          var(--color-primary-dark) 100%);
+     //  /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
+     //  /*remove*/
+     //  // border: 1px solid lightgray;
+     //  border-radius: 16px;
+     //  overflow: hidden;
+     //перенесли ниже в &__container для решения проблем hover gradient -e
+
+     /* тень */
+     /* box-shadow: 2px 2px 4px 4px violet;
+  box-shadow: 0px -10px 4px -5px violet; */
+     /* многослойная тень */
+     /* box-shadow: 2px 2px 4px 4px violet, 4px 4px 8px 8px gold; */
+
+     /* плавнее увеличение размера карточки при Hover */
+     transition: transform 0.3s;
+
+     //  .format-card:hover {
+     &:hover {
+         /* при наведении увеличить */
+         transform: scale(1.05);
+     }
+
+     &__container {
+         //перенесли сюда из  .format-card для решения проблем hover gradient -h----
+         // для спозиционирвать на карточке фон-изображение. вместе с .format-image      position: absolute;
+         position: relative;
+         // для расположить текст на карточке к нижнему краю, был к верхнему
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-end;
+
+         height: 444px;
+         padding: 24px;
+         background-image: linear-gradient(180deg,
+                 rgba(49, 38, 26, 0) 55.21%,
+                 rgba(49, 38, 26, 0.71) 72.92%,
+                 var(--color-primary-dark) 100%);
+         /* background-image: url('../images/walrus-format.jpg');  ненадо сюда - так одинаковая во все 3 карты добавляется  */
+         /*remove*/
+         // border: 1px solid lightgray;
+         border-radius: 16px;
+         overflow: hidden;
+         //перенесли сюда из  .format-card для решения проблем hover gradient -e----
+     }
+
+
+
+     //  .format-image {
+     &__image {
+         position: absolute;
+         // для растянуть картинку по всей ширине карточки format-card
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         // положить jpg ниже текста карточки, иначе текст не виден, накрывается картинкой
+         z-index: -1;
+     }
+
+     //  можно удалить, ни к чему не относится
+     //  .format-title {
+     &__title {
+         font-size: 24px;
+         font-weight: 600;
+         color: var(--color-primary-light);
+     }
+
+     //  .format-text {
+     &__text {
+         font-size: 14px;
+         font-weight: 300;
+         color: var(--color-primary-light);
+     }
+
+ }
+
+ // //перенесен в _formats-section.scss
+ //  .formats-title {
+ //      /* от h2 Walrus...  до p */
+ //      margin-bottom: 80px;
+ //  }

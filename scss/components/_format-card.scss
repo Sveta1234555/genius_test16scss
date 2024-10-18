@@ -23,15 +23,18 @@
      /* многослойная тень */
      /* box-shadow: 2px 2px 4px 4px violet, 4px 4px 8px 8px gold; */
 
-     /* плавнее увеличение размера карточки при Hover */
-     transition: transform 0.3s;
+     //  /* плавнее увеличение размера карточки при Hover */
+     // надо было для примера
+     //  transition: transform 0.3s;
+
      overflow: hidden;
 
-     //  .format-card:hover {
-     &:hover {
-         /* при наведении увеличить */
-         transform: scale(1.05);
-     }
+     //  //  .format-card:hover {
+     //  &:hover {
+     //      /* при наведении увеличить */
+     // надо было для примера
+     //      transform: scale(1.05);
+     //  }
 
 
      //  .format-image {
