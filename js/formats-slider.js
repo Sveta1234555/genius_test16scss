@@ -13,12 +13,14 @@ const swiper = new Swiper(".swiper-container", {
     //   // spaceBetween: 20
     // },
     // when window width is >= 480px
-    480: {
+    // 480: {
+    768: {
       slidesPerView: 2,
       // spaceBetween: 30
     },
     // when window width is >= 640px
-    768: {
+    // 768: {
+    1280: {
       slidesPerView: 3,
       // spaceBetween: 40
     },
@@ -28,7 +30,7 @@ const swiper = new Swiper(".swiper-container", {
   pagination: {
     // el: ".swiper-pagination",
     el: ".pagination", //элемент, к которому применяется bulletClass
-    bulletClass: "pagination__button",
+    bulletClass: "pagination__button",      //это св-во добавляет класс к кнопке
     bulletActiveClass: "pagination__button--active",
   },
 
