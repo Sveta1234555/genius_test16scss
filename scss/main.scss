@@ -206,10 +206,10 @@
 // }
 
 // links перенести в /components/_links.scss 
-@import 'components/links';
+@import './components/links';
 
 //для из swiper точки под слайдером  - сами добавили
-@import 'components/pagination';
+@import './components/pagination';
 
 // /* Header */
 // .header {
