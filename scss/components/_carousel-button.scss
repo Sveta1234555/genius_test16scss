@@ -20,19 +20,35 @@
     fill: var(--color-primary-dark);
     /* курсор ручкой над кнопкой */
     cursor: pointer;
+
+    // .carousel-button:hover {передлатьпо БЭМ и перенести вверх внутрь здесь в .carousel-button:
+    &:hover {
+        /* наведение на кнопку круглую со стрелкой - фон темно-зел */
+        background-color: var(--color-primary-dark);
+        /* fill наследуется от кнопки - перенесено  в кнопку из иконки .carousel-button: hover .carousel-arrow{} */
+        fill: var(--color-primary-light);
+    }
+
+    // .carousel-button.next {   //передлатьпо БЭМ и перенести вверх внутрь здесь в .carousel-button:
+    &.next {
+        /* повернуть круглую кнопку-стрелку справа НАПРАВО */
+        transform: rotate(180deg);
+    }
 }
 
-.carousel-button:hover {
-    /* наведение на кнопку круглую со стрелкой - фон темно-зел */
-    background-color: var(--color-primary-dark);
-    /* fill наследуется от кнопки - перенесено  в кнопку из иконки .carousel-button: hover .carousel-arrow{} */
-    fill: var(--color-primary-light);
-}
+// // .carousel-button:hover {передлатьпо БЭМ и перенести вверх внутрь здесь в .carousel-button:
+// &:hover {
+//     /* наведение на кнопку круглую со стрелкой - фон темно-зел */
+//     background-color: var(--color-primary-dark);
+//     /* fill наследуется от кнопки - перенесено  в кнопку из иконки .carousel-button: hover .carousel-arrow{} */
+//     fill: var(--color-primary-light);
+// }
 
-.carousel-button.next {
-    /* повернуть круглую кнопку-стрелку справа НАПРАВО */
-    transform: rotate(180deg);
-}
+// // .carousel-button.next {   //передлатьпо БЭМ и перенести вверх внутрь здесь в .carousel-button:
+// &.next {
+//     /* повернуть круглую кнопку-стрелку справа НАПРАВО */
+//     transform: rotate(180deg);
+// }
 
 /* ушло из-за наслеlования fill */
 /* .carousel-button:hover .carousel-arrow { */

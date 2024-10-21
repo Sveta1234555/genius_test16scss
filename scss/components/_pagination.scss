@@ -1,6 +1,7 @@
 .pagination {
     display: flex;
     align-items: center;
+    justify-content: center; //центрировать точки под слайдером Они автоматически swiper-ом делаются flex.  а flex центрируется justify
     gap: 24px;
 
     &__button {
