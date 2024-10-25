@@ -5,7 +5,14 @@
     // .contact-container {
     &__container {
         display: flex;
-        gap: 32px;
+        flex-direction: column; //для моб. - форма и карта вертикально один под одним
+        // gap: 32px;    //в десктоп перенесли
+        gap: 24px;
+
+        @media screen and (min-width: $bp-tablet) {
+            flex-direction: row; //от планщета - форма и карта горизонтально в строку  
+            gap: 32px;
+        }
     }
 
     &__title {
@@ -31,9 +38,28 @@
     &__map {
         /* чтобы карта не сжималась после flex родителю и gap */
         flex-shrink: 0;
+        //перенесли ширину высоту iframe (map)  из index.html сюда
+        // width: 600px;
+        // height: 595px;
+        // width: 100%;   // убрали, т.к. это помогло карту в моб версии прижать к обеим границам container-a по ширине- слева-справа
+        height: 176px; // сделали размер по макету моб. версии, до этого  было  height: 100%;
         border-radius: 16px;
+        margin: 0 -24px; // для растянуть карту в моб версии, т.е. прижать к обеим границам container-a по ширине- слева-справа
         /* убрать рамку вокруг map */
         border: none;
+
+        @media screen and (min-width: $bp-tablet) {
+            // width: 600px;
+            // height: 595px;
+            margin: auto; //добавлено (после добавления margin: 0 --24px; для моб версии), чтобы здесь в десктопной - без margin осталось
+            width: 320px;
+            height: 500px;
+        }
+
+        @media screen and (min-width: $bp-desktop) {
+            width: 600px;
+            height: 595px;
+        }
     }
 
 

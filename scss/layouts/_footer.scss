@@ -1,0 +1,154 @@
+/* Footer */
+.footer {
+    // text-align: center; //для моб. надо центрировать .  сюда - чтобы наследовалось на все элементы.перенесли в блок ниже &__nav, &__address 
+    padding: 32px 0;
+    /* без этого не виден декор  before хлебец после bottom 0 у before */
+    /* это надо т.к. именно относительно footer позицонируем это изображение декор before */
+    position: relative;
+    /* background-image: url('../images/footer-background.jpg'); */
+    /* png - Прозрачный, чтобы достичь темного цвета фона, как в макете */
+    background-image: url("../images/footer-background.png");
+    background-color: var(--color-primary-dark);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    // перенесли в блок ниже &__nav,     &__address
+    // @media screen and (min-width: $bp-tablet) {
+    //     text-align: left; // Вернуть десктоп-версии выравнивание влево, после того как сделали мобильной - center
+    // }
+
+
+    //.footer::  -> &::   по БЭМ----------------
+    // .footer::before, .footer::after
+    //и перенести наверх внутрь .footer
+    &::before,
+    &::after {
+        position: absolute;
+        bottom: 0;
+        background-repeat: no-repeat;
+        content: "";
+    }
+
+    // .footer::before {
+    &::before {
+        /* стал блоковым, вертикално располаг */
+        /* position: absolute;  одинаковые - вверх */
+        width: 180px;
+        height: 120px;
+        /* поместить в нижний левый угол хлебец-декор before */
+        /* bottom: 0; одинаковые - вверх */
+        left: 0;
+        /* размеры задали явно, поэтому меняем на 100% */
+        /* background-size: 180px 120px; */
+        /* убрали 100% т.к. доавили no-repeat */
+        /* background-size: 100%; */
+        /* background-repeat: no-repeat; одинаковые - вверх */
+        background-image: url("../images/decor-bread-small.png");
+        /* content: ""; одинаковые - вверх */
+    }
+
+    // .footer::after
+    &::after {
+        /* стал блоковым, вертикално располаг */
+        /* position: absolute; одинаковые - вверх  */
+        width: 380px;
+        height: 190px;
+        /* поместить в нижний левый угол хлебец-декор before */
+        /* bottom: 0; одинаковые - вверх  */
+        /* поместить к правому краю */
+        right: 0;
+        /* background-repeat: no-repeat;  одинаковые - вверх  */
+        background-image: url("../images/decor-bread-large.png");
+        /* content: ""; одинаковые - вверх  */
+    }
+
+
+    //.footer-  -> &__   по БЭМ----------------
+    //и перенести наверх внутрь .footer
+    // .footer-container {
+    &__container {
+        display: flex;
+        flex-direction: column; //для моб.
+        /* между блоками крупными 2-мя - элементами flex (nav и address) родительского footer-container */
+        gap: 20px;
+
+        @media screen and (min-width: $bp-tablet) {
+            flex-direction: row; // Вернуть десктоп версии гориз строчное раположение, после того как сделали мобильной - column
+        }
+    }
+
+    // .footer-nav,  .footer-address {
+    &__nav,
+    &__address {
+        /* для логотип и список ul стали в один ряд */
+        display: flex;
+        flex-direction: column; //для моб.
+        // flex-basis: 50%;   //перенесли в десктоп версию
+        /* между блоками- элементами flex каждого родительского. попарно */
+        gap: 20px;
+        text-align: center; //для моб. надо центрировать .  
+
+        @media screen and (min-width: $bp-tablet) {
+            flex-direction: row; // Вернуть десктоп версии гориз строчное раположение, после того как сделали мобильной - column
+            flex-basis: 50%; //перенесли сюда , для десктоп версии
+            text-align: left; // Вернуть десктоп-версии выравнивание влево, после того как сделали мобильной - center
+        }
+    }
+
+    /* .footer-address {
+  чтобы ul и addres-info (copyright и ...) стали в ряд
+  display: flex;
+  flex-basis: 50%;
+} */
+
+    // .footer-logo, .footer-menu {
+    &__logo,
+    &__menu {
+        /* для логотип и список ul заняли по 50% в своем flex*/
+        flex-grow: 1;
+    }
+
+    /* .footer-menu {
+  для логотип и список ul заняли по 50% в своем flex
+  flex-grow: 1;
+} */
+
+    // .address-list,         .address-info   БЭМ
+    &__address-list,
+    &__address-info {
+        flex-grow: 1;
+    }
+
+    //   .address-link  БЭМ
+    &__address-link {
+        color: var(--color-primary-light);
+        font-size: 16px;
+        font-weight: 300;
+        text-decoration: none;
+    }
+
+    // .address-link:hover  БЭМ
+    &__address-link:hover {
+        color: var(--color-brand-normal);
+    }
+
+    // .address-icon  БЭМ
+    &__address-icon {
+        fill: var(--color-primary-light);
+        /* обводка иконки  */
+        /* stroke: red; */
+    }
+
+    // .address-icon:hover  БЭМ
+    &__address-icon:hover {
+        fill: var(--color-brand-normal);
+    }
+
+    // .address-copyright  БЭМ
+    &__address-copyright {
+        font-size: 14px;
+        /* 400 inheryt от body} */
+        color: var(--color-secondary-normal);
+    }
+}

@@ -14,9 +14,11 @@
     align-items: center;
     justify-content: center;
     /* модальное окно отодвинуть от границ  - относительно родительского Padding-Ом */
-    padding: 20px 0;
+    // padding: 20px 0;
+    padding: 20px; //поменяли на 20 со сех сторон, чтбоы для моб версии был отступ от краев при сужени экрана по ширине
     /* анимация ПЕРЕХОД- плавнее показывать модальное окно */
     transition: opacity 0.3s, visibility 0.3s;
+
 
 
     /* .modal.is-hidden { */
@@ -52,11 +54,18 @@
     height: 100%;
     max-height: 880px;
     /* на макете вокруг заголовка - формы такие с 3-х сторон отступы */
-    padding: 128px;
+    // padding: 128px;      //перенесли в десктоп
+    padding: 48px; //для моб. версии
     background-color: var(--color-primary-light);
     border-radius: 32px;
     /* чтобы скроллилось модальное окно когда не помещается содержимаое */
     overflow-y: auto;
+
+    @media screen and (min-width: $bp-tablet) {
+        /* на макете вокруг заголовка - формы такие с 3-х сторон отступы */
+        padding: 128px;
+    }
+
 
     // .modal-btn-close {
     // .modal__btn-close {

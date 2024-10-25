@@ -31,26 +31,30 @@
         margin-bottom: 32px;
     }
 
+    // &__button {
+    //     //убрать круглые кнопки влево вправо слайдера для моб.версии
+    //     //для моб.версии
+
+    //     // не убираются кнопки на моб версии!!! ф12 - зачеркнута эта команда
+    //     //git - Тоже не убимраются на моб. версии кнопки круглые
+    //     display: none;
+    //     // visibility: hidden;   //если не flex
+    //     // display: none !important; // Добавляем !important для приоритета - так нигде нет кнопок круглых
+
+    //     // @media screen and (min-width: 768px) {
+    //     @media screen and (min-width: $bp-tablet) {
+    //         display: flex;
+    //     }
+    // }
+
+    // исправила пока так: 
     &__button {
-        //убрать круглые кнопки влево вправо слайдера для моб.версии
-        //для моб.версии
-
-        // не убираются кнопки на моб версии!!! ф12 - зачеркнута эта команда
-        display: none;
-
-        // @media screen and (min-width: 768px) {
-        @media screen and (min-width: $bp-tablet) {
-            display: flex;
+        @media screen and (max-width: $bp-tablet) {
+            display: none !important; // Добавляем !important для приоритета  - так работает . на моб - нет кнопоко, на остальны х -есть
+            // display: none; // убрала !important  - не работает, есть кнопки везде
         }
     }
 
-    // //  исправила так:
-    // &__button {
-    //     @media screen and (max-width: $bp-tablet) {
-    //         // display: none !important; // Добавляем !important для приоритета
-    //         display: none; // Добавляем !important для приоритета
-    //     }
-    // }
 
 
 
