@@ -494,11 +494,10 @@
             ВЕРНУТЬ MAP!!!
           </p> -->
 
+            <!-- //перенесли ширину высоту  width="603" height="595" iframe (map)  из index.html в _contact-section.scss -->
             <iframe
               class="contact-section__map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.164724367906!2d30.491251499999997!3d50.4566572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce637bfe1717%3A0x5370c2254ad1b952!2z0YPQuy4g0KHQtdGH0LXQstGL0YUg0KHRgtGA0LXQu9GM0YbQvtCyLCA1NCwg0JrQuNC10LIsIDAyMDAw!5e0!3m2!1sru!2sua!4v1718219965162!5m2!1sru!2sua"
-              width="603"
-              height="595"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
@@ -509,10 +508,13 @@
     </main>
     <footer class="footer">
       <div class="container">
-        <div class="footer-container">
-          <nav class="footer-nav">
+        <!-- <div class="footer-container"> БЭМ-->
+        <div class="footer__container">
+          <!-- <nav class="footer-nav">  БЭМ-->
+          <nav class="footer__nav">
             <!-- чтобы Logo был ссылкой с наведением только на тексте Img, поменьше -->
-            <div class="footer-logo">
+            <!-- <div class="footer-logo">  БЭМ-->
+            <div class="footer__logo">
               <!-- <a class="footer-logo" href="#"> -->
               <a href="#">
                 <!-- logo -->
@@ -523,7 +525,8 @@
               /> -->
               </a>
             </div>
-            <ul class="footer-menu">
+            <!-- <ul class="footer-menu">  БЭМ-->
+            <ul class="footer__menu">
               <li>
                 <a class="link" href="#traditions-section">Наші традиції</a>
               </li>
@@ -532,49 +535,69 @@
               <li><a class="link" href="#contact-section">Контакти</a></li>
             </ul>
           </nav>
-          <address class="footer-address">
-            <ul class="address-list">
-              <li>
-                <a class="address-link" href="tel:+380960000007">
-                  + 38 (096) 000 00 07</a
-                >
-              </li>
-              <li>
-                <a class="address-link" href="mailto:shopbakery@gmail.com">
-                  shopbakery@gmail.com
-                </a>
-              </li>
-              <li>
-                <a
-                  class="address-link"
-                  href="https://goo.gl/maps/KpjmkaboxKH6DTnk9"
-                  target="_blank"
-                >
-                  Україна, м. Київ, вул. Січових Стрільців 54
-                </a>
-              </li>
-              <li>
+          <!-- <address class="footer-address">  БЭМ-->
+          <address class="footer__address">
+            <div class="footer__address-contacts">
+              <!-- <ul class="address-list"> БЭМ-->
+              <ul class="footer__address-list">
+                <li>
+                  <!-- <a class="address-link" href="tel:+380960000007"> БЭМ -->
+                  <a class="footer__address-link" href="tel:+380960000007">
+                    + 38 (096) 000 00 07</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer__address-link"
+                    href="mailto:shopbakery@gmail.com"
+                  >
+                    shopbakery@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="footer__address-link"
+                    href="https://goo.gl/maps/KpjmkaboxKH6DTnk9"
+                    target="_blank"
+                  >
+                    Україна, м. Київ, вул. Січових Стрільців 54
+                  </a>
+                </li>
+                <!--перенсли в отдельный div ниже для горизонтального размещения 2 значков соцсетей -->
+                <!-- <li>-->
+                <!-- facebook icon  -->
+                <!-- </li> -->
+                <!-- <li> -->
+                <!-- instagramm icon  -->
+                <!-- </li> -->
+              </ul>
+              <!-- для горизонтального размещения 2 значков соцсетей , перенесли из списка ul из address , сюда . но без li-->
+              <div>
+                <!-- <li> -->
                 <a href="#">
                   <!-- facebook icon  -->
-                  <svg class="address-icon" width="32" height="32">
+                  <!-- <svg class="address-icon" width="32" height="32"> БЭМ -->
+                  <svg class="footer__address-icon" width="32" height="32">
                     <use href="./images/icons.svg#icon-facebook"></use>
                   </svg>
                 </a>
-              </li>
-              <li>
+                <!-- </li> -->
+                <!-- <li> -->
                 <a href="#">
                   <!-- instagramm icon  -->
-                  <svg class="address-icon" width="32" height="32">
+                  <svg class="footer__address-icon" width="32" height="32">
                     <use href="./images/icons.svg#icon-instagram"></use>
                   </svg>
                 </a>
-              </li>
-            </ul>
-            <div class="address-info">
-              <a class="address-link" href="#" target="_blank"
+                <!-- </li> -->
+              </div>
+            </div>
+            <!-- <div class="address-info"> БЭМ -->
+            <div class="footer__address-info">
+              <a class="footer__address-link" href="#" target="_blank"
                 >Політика конфіденційності</a
               >
-              <p class="address-copyright">&copy; 2023 Дані захищені</p>
+              <p class="footer__address-copyright">&copy; 2023 Дані захищені</p>
             </div>
           </address>
         </div>
